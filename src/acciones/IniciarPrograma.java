@@ -9,23 +9,24 @@ import modelo.Lista;
 import modelo.Pila;
 import utiles.Constantes;
 import utiles.Utiles;
+import vista.Casilla;
 
 public class IniciarPrograma implements Iniciable{
-	Cola cola;
-	Pila pila, pilaDos;
-	Lista lista;
-	Logica logica;
+	private Cola<Casilla> cola;
+	private Pila pila, pilaDos;
+	private Lista lista;
+	private Logica logica;
 	
 	@Override
 	public void iniciarPrograma() {
-		cola = new Cola<Colores>();
+		this.cola = new Cola<Casilla>();
 		for (int i = 0; i < Constantes.TAMANO_COLA; i++) {
-			int numero = Utiles.genNumeroRandom();
-			cola.getCola().add(Colores.getElement(numero));
+			int numero = Utiles.genNumeroRandom(0,Colores.getCantidadElementos()-1);
+			this.cola.encolar(new Casilla(Colores.getElement(numero).toString()));
 		}
-		pila = new Pila();
-		pilaDos = new Pila();
-		lista = new Lista();
+		this.pila = new Pila();
+		this.pilaDos = new Pila();
+		this.lista = new Lista();
 		
 	}
 

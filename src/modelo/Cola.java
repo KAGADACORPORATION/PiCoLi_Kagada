@@ -9,6 +9,9 @@ import java.util.Collection;
 		public void encolar(T t) {
 			this.cola.push(t);
 		}
+		public ArrayDeque<T> getCola() {
+			return cola;
+		}
 		public T desencolar(){
 			return this.cola.pop();
 		}

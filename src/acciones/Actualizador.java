@@ -1,5 +1,5 @@
 package acciones;
-public class Accion {
+public class Actualizador {
 
   public void actualizarPantalla() {
   }

@@ -6,27 +6,58 @@ import java.util.Vector;
 
 public class Datos {
 
-  public ArrayDeque Cola;
+  public Cola cola;
+  public Lista lista;
+  public Pila pilaUno;
+  public Pila pilaDos;
 
-  public List Lista;
+	public Datos(Cola cola, Lista lista, Pila pilaUno, Pila pilaDos) {
+	super();
+	this.cola = cola;
+	this.lista = lista;
+	this.pilaUno = pilaUno;
+	this.pilaDos = pilaDos;
+	
+}
 
-  public Stack PilaUno;
-
-  public Stack PilaDos;
-
-    public Vector  myPuente;
-	private Cola<Colores> cola;
-
-	public Datos() {
-		super();
-		cola=new Cola<>();
-	}
-
-	public Cola<Colores> getCola() {
+	public Cola getCola() {
 		return cola;
 	}
-	
-	
+
+	public void setCola(Cola cola) {
+		this.cola = cola;
+	}
+
+
+	public Lista getLista() {
+		return lista;
+	}
+
+
+	public void setLista(Lista lista) {
+		this.lista = lista;
+	}
+
+
+	public Pila getPilaUno() {
+		return pilaUno;
+	}
+
+
+	public void setPilaUno(Pila pilaUno) {
+		this.pilaUno = pilaUno;
+	}
+
+
+	public Pila getPilaDos() {
+		return pilaDos;
+	}
+
+
+	public void setPilaDos(Pila pilaDos) {
+		this.pilaDos = pilaDos;
+	}
+
 }
 
  

@@ -173,10 +173,7 @@ public class VistaPrincipal extends JFrame{
 		panelPedirColor.setLayout(new BoxLayout(panelPedirColor, BoxLayout.X_AXIS));
 		
 		botonPedirColor = new JButton("Pedir Color (x5)\r\n");
-		botonPedirColor.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
+		
 		botonPedirColor.setMinimumSize(new Dimension(10, 22));
 		botonPedirColor.setMaximumSize(new Dimension(999, 33));
 		botonPedirColor.setBackground(new Color(255, 204, 0));

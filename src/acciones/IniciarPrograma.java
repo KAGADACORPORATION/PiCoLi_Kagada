@@ -12,6 +12,8 @@ public class IniciarPrograma implements Iniciable{
 			int numero = Utiles.genNumeroRandom();
 			cola.getCola().add(Colores.getElement(numero));
 		}
+		pila = new Pila();
+		lista = new Lista();
 	}
 
 	@Override

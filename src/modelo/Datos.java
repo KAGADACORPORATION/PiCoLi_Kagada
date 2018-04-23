@@ -17,6 +17,7 @@ public class Datos {
 	this.lista = lista;
 	this.pilaUno = pilaUno;
 	this.pilaDos = pilaDos;
+	
 }
 
 	public Cola getCola() {

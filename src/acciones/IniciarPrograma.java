@@ -31,7 +31,7 @@ public class IniciarPrograma implements Iniciable{
 
 	@Override
 	public void mostrarCambios() {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stu
 		
 	}
 

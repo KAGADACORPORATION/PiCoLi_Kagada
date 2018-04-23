@@ -1,3 +1,13 @@
 package acciones;
-public class BarajarColor extends Accion {
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class BarajarColor implements ActionListener {
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Apéndice de método generado automáticamente
+		
+	}
 }

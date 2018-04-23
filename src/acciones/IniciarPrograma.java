@@ -1,3 +1,5 @@
 package acciones;
-public class IniciarPrograma extends Accion {
+
+public class IniciarPrograma {
+	
 }

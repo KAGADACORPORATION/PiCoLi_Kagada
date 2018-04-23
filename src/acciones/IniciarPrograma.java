@@ -10,7 +10,7 @@ import modelo.Pila;
 import utiles.Constantes;
 import utiles.Utiles;
 
-public class IniciarPrograma extends Actualizador implements Iniciable{
+public class IniciarPrograma implements Iniciable{
 	Cola cola;
 	Pila pila;
 	Lista lista;

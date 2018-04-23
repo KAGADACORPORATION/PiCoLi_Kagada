@@ -24,9 +24,6 @@ import java.awt.Insets;
 import javax.swing.border.LineBorder;
 import java.awt.Cursor;
 import javax.swing.border.BevelBorder;
-import javax.swing.ImageIcon;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class VistaPrincipal extends JFrame{
 	protected JLabel puntosMonedas;
@@ -42,10 +39,7 @@ public class VistaPrincipal extends JFrame{
 	protected JPanel panelBorrarColor;
 	protected JButton botonBorrarColor;
 	protected JLabel mensaje;
-	private JLabel label;
-	private JLabel label_1;
-	private JLabel label_2;
-	private JButton btnX;
+	protected JButton botonSeleccionarColor;
 	
 	public VistaPrincipal() {
 		getContentPane().setBackground(new Color(255, 255, 255));
@@ -159,30 +153,14 @@ public class VistaPrincipal extends JFrame{
 		getContentPane().add(panelSeleccionarColor, gbc_panelSeleccionarColor);
 		panelSeleccionarColor.setLayout(new BoxLayout(panelSeleccionarColor, BoxLayout.X_AXIS));
 		
-		label = new JLabel(" ");
-		label.setMaximumSize(new Dimension(222, 222));
-		label.setBackground(new Color(255, 0, 0));
-		label.setOpaque(true);
-		panelSeleccionarColor.add(label);
-		
-		label_1 = new JLabel(" ");
-		label_1.setOpaque(true);
-		label_1.setBackground(Color.GREEN);
-		label_1.setMaximumSize(new Dimension(222, 222));
-		panelSeleccionarColor.add(label_1);
-		
-		label_2 = new JLabel(" ");
-		label_2.setOpaque(true);
-		label_2.setBackground(Color.BLUE);
-		label_2.setMaximumSize(new Dimension(222, 222));
-		panelSeleccionarColor.add(label_2);
-		
-		btnX = new JButton("");
-		btnX.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/com/sun/javafx/scene/web/skin/Undo_16x16_JFX.png")));
-		btnX.setMargin(new Insets(0, 0, 0, 0));
-		btnX.setMinimumSize(new Dimension(5, 5));
-		btnX.setMaximumSize(new Dimension(222, 222));
-		panelSeleccionarColor.add(btnX);
+		botonSeleccionarColor = new JButton("Selecciona Color");
+		panelSeleccionarColor.add(botonSeleccionarColor);
+		botonSeleccionarColor.setPreferredSize(new Dimension(111, 29));
+		botonSeleccionarColor.setMinimumSize(new Dimension(10, 22));
+		botonSeleccionarColor.setMaximumSize(new Dimension(999, 33));
+		botonSeleccionarColor.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		botonSeleccionarColor.setBorder(new LineBorder(new Color(0, 255, 0), 1, true));
+		botonSeleccionarColor.setBackground(new Color(204, 255, 153));
 		
 		panelPedirColor = new JPanel();
 		GridBagConstraints gbc_panelPedirColor = new GridBagConstraints();

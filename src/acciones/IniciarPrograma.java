@@ -9,7 +9,6 @@ import modelo.Lista;
 import modelo.Pila;
 import utiles.Constantes;
 import utiles.Utiles;
-
 public class IniciarPrograma implements Iniciable{
 	Cola cola;
 	Pila pila;
@@ -22,8 +21,6 @@ public class IniciarPrograma implements Iniciable{
 			int numero = Utiles.genNumeroRandom();
 			cola.getCola().add(Colores.getElement(numero));
 		}
-		pila = new Pila();
-		lista = new Lista();
 	}
 
 	@Override

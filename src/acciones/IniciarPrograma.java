@@ -1,14 +1,5 @@
 package acciones;
 
-import java.util.ArrayDeque;
-
-import interfaces.Iniciable;
-import modelo.Cola;
-import modelo.Colores;
-import modelo.Lista;
-import modelo.Pila;
-import utiles.Constantes;
-import utiles.Utiles;
 public class IniciarPrograma implements Iniciable{
 	Cola cola;
 	Pila pila;

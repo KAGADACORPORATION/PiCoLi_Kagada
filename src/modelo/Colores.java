@@ -1,0 +1,6 @@
+package modelo;
+
+enum Color {
+
+  
+}

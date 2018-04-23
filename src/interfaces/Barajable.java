@@ -1,6 +1,9 @@
 package interfaces;
+
+import modelo.Datos;
+
 public interface Barajable {
 
-  public void barajarColor();
+  public void barajarColor(Datos datos );
 
 }

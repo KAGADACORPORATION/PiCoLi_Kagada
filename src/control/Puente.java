@@ -24,12 +24,10 @@ public class Puente extends VistaPrincipal {
 		this.vistaPrincipal = new VistaPrincipal();
 		this.logica = new Logica();
 		
-		this.seleccionarColor = new SeleccionarColor(this.panelSeleccionarColor, this.botonSeleccionarColor,
-				this.datos);
+		this.seleccionarColor = new SeleccionarColor(this.panelSeleccionarColor, this.botonSeleccionarColor,this.datos);
 		this.barajarColor = new BarajarColor(this.datos);
 		this.borrarColor= new BorrarColor(this.datos);
-		this.pedirColor= new PedirColor(this.panelSeleccionarColor, this.botonSeleccionarColor,
-				this.datos);
+		this.pedirColor= new PedirColor(this.panelSeleccionarColor, this.botonSeleccionarColor,this.datos);
 		
 		this.botonSeleccionarColor.addActionListener(seleccionarColor);
 		this.botonPedirColor.addActionListener(pedirColor);

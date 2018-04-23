@@ -7,7 +7,10 @@ public class Pila<T> {
 
   private Stack <T> pila;
 
-  	public void enpilar(T t) {
+  	public Stack<T> getPila() {
+	return pila;
+}
+	public void enpilar(T t) {
 		this.pila.push(t);
 	}
 	public T desenpilar(){

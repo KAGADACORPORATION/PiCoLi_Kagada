@@ -1,7 +1,9 @@
 package utiles;
 
 public class Utiles {
-	
+	public static int genNumeroRandom() {
+		return (int) (Math.random() *5);
+	}
 		/**
 		 * crea un numero random 
 		 * @param min numero minimo
@@ -12,5 +14,7 @@ public class Utiles {
 			int numeroAleatorio=((int)(Math.random()*((max-min)+1)))+min;
 			return numeroAleatorio;
 		}
-
+		public static int numeroRandom01() {
+			return (int) (Math.random() *1);
+		}
 }

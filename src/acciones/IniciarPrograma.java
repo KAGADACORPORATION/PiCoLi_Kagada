@@ -22,7 +22,6 @@ public class IniciarPrograma extends Actualizador implements Iniciable{
 			int numero = Utiles.genNumeroRandom();
 			cola.getCola().add(Colores.getElement(numero));
 		}
-		
 		pila = new Pila();
 		lista = new Lista();
 	}

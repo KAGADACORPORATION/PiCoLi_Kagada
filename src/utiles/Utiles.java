@@ -2,7 +2,7 @@ package utiles;
 
 public class Utiles {
 	public static int genNumeroRandom() {
-		return (int) (Math.random() * 5);
+		return (int) (Math.random() *5);
 	}
 
 }

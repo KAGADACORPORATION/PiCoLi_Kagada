@@ -9,7 +9,6 @@ public class IniciarProgramaTest {
 	@Test
 	public void testIniciarPrograma() {
 		IniciarPrograma instancia = new IniciarPrograma();
-		instancia.iniciarPrograma();
 	}
 
 }

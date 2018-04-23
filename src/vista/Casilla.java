@@ -10,16 +10,16 @@ import modelo.Colores;
 
 public class Casilla extends JLabel {
 
-  public String Color;
+  public String color;
 
 public Casilla(String color) {
 	super();
-	Color = color;
+	this.color = color;
 	this.setMaximumSize(new Dimension(500, 500));
-	JLabel NuevaCasilla= new JLabel(" ");
-	NuevaCasilla.setBorder(new LineBorder(new java.awt.Color(0, 0, 0),2,true));
-	NuevaCasilla.setOpaque(true);
-	NuevaCasilla.setBackground(Colores.valueOf(color).getColor());
+	this.setText(" ");
+	this.setBorder(new LineBorder(new java.awt.Color(0, 0, 0),2,true));
+	this.setOpaque(true);
+	this.setBackground(Colores.valueOf(color).getColor());
 }
 
 }

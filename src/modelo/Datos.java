@@ -15,8 +15,18 @@ public class Datos {
   public Stack PilaDos;
 
     public Vector  myPuente;
-    
-  public void newOperation() {
-  }
+	private Cola<Colores> cola;
 
+	public Datos() {
+		super();
+		cola=new Cola<>();
+	}
+
+	public Cola<Colores> getCola() {
+		return cola;
+	}
+	
+	
 }
+
+ 

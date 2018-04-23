@@ -1,10 +1,19 @@
 package modelo;
 
+import java.util.Collection;
 import java.util.Stack;
 
-public class Pila {
+public class Pila<T> {
 
-  public Stack Pila;
+  private Stack <T> pila;
 
-  public Integer newAttr;
+  	public void enpilar(T t) {
+		this.pila.push(t);
+	}
+	public T desenpilar(){
+		return this.pila.pop();
+	}
+	public Collection<T> getCollectionCola(){
+		return pila;
+	}
 }

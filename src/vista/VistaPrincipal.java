@@ -25,6 +25,8 @@ import javax.swing.border.LineBorder;
 import java.awt.Cursor;
 import javax.swing.border.BevelBorder;
 import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class VistaPrincipal extends JFrame{
 	protected JLabel puntosMonedas;
@@ -192,7 +194,11 @@ public class VistaPrincipal extends JFrame{
 		getContentPane().add(panelPedirColor, gbc_panelPedirColor);
 		panelPedirColor.setLayout(new BoxLayout(panelPedirColor, BoxLayout.X_AXIS));
 		
-		botonPedirColor = new JButton("Pedir Color");
+		botonPedirColor = new JButton("Pedir Color (x5)\r\n");
+		botonPedirColor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		botonPedirColor.setMinimumSize(new Dimension(10, 22));
 		botonPedirColor.setMaximumSize(new Dimension(999, 33));
 		botonPedirColor.setBackground(new Color(255, 204, 0));
@@ -208,7 +214,7 @@ public class VistaPrincipal extends JFrame{
 		getContentPane().add(panelBarajarPila, gbc_panelBarajarPila);
 		panelBarajarPila.setLayout(new BoxLayout(panelBarajarPila, BoxLayout.X_AXIS));
 		
-		botonBarajarPila = new JButton("Barajar Pila");
+		botonBarajarPila = new JButton("Barajar Pila (x3)");
 		botonBarajarPila.setMinimumSize(new Dimension(10, 22));
 		botonBarajarPila.setMaximumSize(new Dimension(999, 33));
 		botonBarajarPila.setBackground(new Color(255, 204, 0));
@@ -224,7 +230,7 @@ public class VistaPrincipal extends JFrame{
 		getContentPane().add(panelBorrarColor, gbc_panelBorrarColor);
 		panelBorrarColor.setLayout(new BoxLayout(panelBorrarColor, BoxLayout.X_AXIS));
 		
-		botonBorrarColor = new JButton("Borrar Color");
+		botonBorrarColor = new JButton("Borrar Color (x2)");
 		botonBorrarColor.setMinimumSize(new Dimension(10, 22));
 		botonBorrarColor.setMaximumSize(new Dimension(999, 33));
 		botonBorrarColor.setBackground(new Color(255, 204, 0));

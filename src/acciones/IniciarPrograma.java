@@ -9,7 +9,7 @@ import modelo.Lista;
 import modelo.Pila;
 import utiles.Constantes;
 import utiles.Utiles;
-public class IniciarPrograma implements Iniciable{
+public class IniciarPrograma{
 	Cola cola;
 	Pila pila;
 	Lista lista;

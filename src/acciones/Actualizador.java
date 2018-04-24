@@ -1,7 +1,13 @@
 package acciones;
+
+import vista.VistaPrincipal;
+
 public class Actualizador {
-
-  public void actualizarPantalla() {
+	VistaPrincipal vistaPrincipal;
+  public Actualizador(VistaPrincipal vistaPrincipal) {
+	  this.vistaPrincipal = vistaPrincipal;
   }
-
+  	public void actualizar (){
+  	  this.vistaPrincipal.revalidate();
+  	}
 }

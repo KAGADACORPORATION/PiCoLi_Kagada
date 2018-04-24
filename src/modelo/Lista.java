@@ -3,13 +3,12 @@ package modelo;
 import java.awt.List;
 import java.util.ArrayList;
 
-public class Lista {
+public class Lista<T> {
 
-  public ArrayList lista= new ArrayList();
+	private ArrayList<T> lista = new ArrayList();
 
-public Lista(ArrayList lista) {
-	super();
-	lista = lista;
-}
+	public ArrayList<T> getLista() {
+		return lista;
+	}
 
 }

@@ -14,10 +14,12 @@ import utiles.Utiles;
 public class BarajarPila implements ActionListener, Barajable {
 
 	Datos datos;
+	Actualizador actualizador;
 	
-	public BarajarPila(Datos datos) {
+	public BarajarPila(Datos datos, Actualizador actualizador) {
 		super();
 		this.datos = datos;
+		this.actualizador = actualizador;
 	}
 	
 	@Override
@@ -51,5 +53,9 @@ public class BarajarPila implements ActionListener, Barajable {
 			addToPila(temporal, Utiles.numeroRandom01(), datos);
 		}
 
+	}
+	@Override
+	public void actualizar() {
+		this.actualizador.actualizar();		
 	}
 }

@@ -20,6 +20,7 @@ public class Barajador implements ActionListener, Barajable {
 		super();
 		this.datos = datos;
 		this.actualizador = actualizador;
+		
 	}
 	
 	@Override

@@ -16,7 +16,7 @@ public class Barajador implements ActionListener, Barajable {
 	Datos datos;
 	Actualizador actualizador;
 	
-	public BarajarPila(Datos datos, Actualizador actualizador) {
+	public Barajador(Datos datos, Actualizador actualizador) {
 		super();
 		this.datos = datos;
 		this.actualizador = actualizador;
@@ -57,5 +57,5 @@ public class Barajador implements ActionListener, Barajable {
 	@Override
 	public void actualizar() {
 		this.actualizador.actualizar();		
-	}S
+	}
 }

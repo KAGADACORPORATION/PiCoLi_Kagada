@@ -3,14 +3,15 @@ package acciones;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import interfaces.Borrable;
 import modelo.Datos;
 import vista.Casilla;
 
-public class Borrador implements ActionListener {
+public class Borrador implements ActionListener,Borrable {
 
 	Actualizador actualizador;
 	Datos datos;
-	public BorrarColor(Datos datos, Actualizador actualizador) {
+	public Borrador(Datos datos, Actualizador actualizador) {
 		super();
 		this.datos = datos;
 		this.actualizador = actualizador;

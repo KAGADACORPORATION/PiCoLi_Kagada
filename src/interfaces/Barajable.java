@@ -5,5 +5,6 @@ import modelo.Datos;
 public interface Barajable {
 
   public void barajarColor(Datos datos );
-
+  
+  public void actualizar();
 }

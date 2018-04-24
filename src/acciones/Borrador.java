@@ -3,11 +3,33 @@ package acciones;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import modelo.Datos;
+import vista.Casilla;
+
 public class Borrador implements ActionListener {
 
+	Actualizador actualizador;
+	Datos datos;
+	public BorrarColor(Datos datos, Actualizador actualizador) {
+		super();
+		this.datos = datos;
+		this.actualizador = actualizador;
+	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Apéndice de método generado automáticamente
-		
+		Casilla etiquetaActual = ((Casilla)e.getSource());
+		borrarColor(etiquetaActual.getColor(),datos);
+	}
+	//QUEDA PENDIENTE DE LA LISTA
+	@Override
+	public void borrarColor(String color,Datos datos) {
+		for (int i = 0; i < datos.lista.getLista().size(); i++) {
+			datos.lista.getLista().remove(color);
+		}
+	}
+
+	@Override
+	public void actualizar() {
+		this.actualizador.actualizar();
 	}
 }

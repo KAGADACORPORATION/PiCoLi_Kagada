@@ -14,10 +14,12 @@ import utiles.Utiles;
 public class Barajador implements ActionListener, Barajable {
 
 	Datos datos;
+	Actualizador actualizador;
 	
-	public Barajador(Datos datos) {
+	public BarajarPila(Datos datos, Actualizador actualizador) {
 		super();
 		this.datos = datos;
+		this.actualizador = actualizador;
 	}
 	
 	@Override
@@ -42,14 +44,18 @@ public class Barajador implements ActionListener, Barajable {
 	public void barajarColor(Datos datos) {
 		Stack temporal = new Stack();
 		for (int i = 0; i < datos.pilaUno.getPila().size(); i++) {
-			temporal.add(datos.pilaUno.getPila().pop());
+			temporal.add(datos.pilaUno.desenpilar());
 		}
 		for (int i = 0; i < datos.pilaDos.getPila().size(); i++) {
-			temporal.add(datos.pilaDos.getPila().pop());
+			temporal.add(datos.pilaDos.desenpilar());
 		}
 		for (int i = 0; i < temporal.size(); i++) {
 			addToPila(temporal, Utiles.numeroRandom01(), datos);
 		}
 
 	}
+	@Override
+	public void actualizar() {
+		this.actualizador.actualizar();		
+	}S
 }

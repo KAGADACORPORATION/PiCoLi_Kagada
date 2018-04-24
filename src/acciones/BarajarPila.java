@@ -8,12 +8,17 @@ import org.junit.Test;
 
 import interfaces.Barajable;
 import modelo.Datos;
+import utiles.Constantes;
 import utiles.Utiles;
 
 public class BarajarPila implements ActionListener, Barajable {
 
 	Datos datos;
-	// NO ESTA COMPLETO
+	
+	public BarajarPila(Datos datos) {
+		super();
+		this.datos = datos;
+	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -21,11 +26,16 @@ public class BarajarPila implements ActionListener, Barajable {
 	}
 
 	private void addToPila(Stack temporal, int numeroRandom, Datos datos) {
-		if (numeroRandom == 0 && datos.pilaUno.getPila().size() <= 5) {
-			datos.pilaUno.getPila().add(temporal.pop());
-		} else if (numeroRandom == 1 && datos.pilaDos.getPila().size() <= 5) {
+		if (numeroRandom == 0) {
+			if (datos.pilaUno.getPila().size() < Constantes.TAMANO_PILA) {
+				datos.pilaUno.getPila().add(temporal.pop());
+			}else datos.pilaDos.getPila().add(temporal.pop());
+			
+		} else if (datos.pilaDos.getPila().size() < Constantes.TAMANO_PILA) {
 			datos.pilaDos.getPila().add(temporal.pop());
-		}
+		}else datos.pilaUno.getPila().add(temporal.pop());
+			
+		
 	}
 
 	@Override

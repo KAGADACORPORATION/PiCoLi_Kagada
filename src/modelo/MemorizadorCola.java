@@ -4,8 +4,8 @@ import java.util.ArrayDeque;
 import java.util.Collection;
 import vista.Casilla;
 
-public class MemorizadorCola {
-private ArrayDeque<Casilla> memoriaCola;
+public class MemorizadorCola<T> {
+private ArrayDeque<T> memoriaCola;
 	
 	
 	public MemorizadorCola() {
@@ -13,16 +13,16 @@ private ArrayDeque<Casilla> memoriaCola;
 		this.memoriaCola = new ArrayDeque<>();
 	}
 	
-	public void encolar(Casilla t) {
-		this.memoriaCola.push(t);
+	public void encolar(T cosa) {
+		this.memoriaCola.push(cosa);
 	}
-	public ArrayDeque<Casilla> getCola() {
+	public ArrayDeque<T> getCola() {
 		return memoriaCola;
 	}
-	public Casilla desencolar(){
+	public T desencolar(){
 		return this.memoriaCola.pop();
 	}
-	public Collection<Casilla> getCollectionCola(){
+	public Collection<T> getCollectionCola(){
 		return memoriaCola;
 	}
 	public int getTamanioMemoriaCola() {

@@ -5,18 +5,21 @@ import java.util.Stack;
 
 public class Pila<T> {
 
-  private Stack <T> pila;
+	private Stack<T> pila = new Stack<>();
 
-  	public Stack<T> getPila() {
-	return pila;
-}
+	public Stack<T> getPila() {
+		return pila;
+	}
+
 	public void enpilar(T t) {
 		this.pila.push(t);
 	}
-	public T desenpilar(){
+
+	public T desenpilar() {
 		return this.pila.pop();
 	}
-	public Collection<T> getCollectionCola(){
+
+	public Collection<T> getCollectionCola() {
 		return pila;
 	}
 }

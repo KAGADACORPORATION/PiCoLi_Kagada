@@ -24,8 +24,8 @@ public class Borrador implements ActionListener,Borrable {
 	//QUEDA PENDIENTE DE LA LISTA
 	@Override
 	public void borrarColor(String color,Datos datos) {
-		for (int i = 0; i < datos.lista.getLista().size(); i++) {
-			datos.lista.getLista().remove(color);
+		for (int i = 0; i < datos.getLista().getLista().size(); i++) {
+			datos.getLista().getLista().remove(color);
 		}
 	}
 

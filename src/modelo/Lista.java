@@ -11,4 +11,8 @@ public class Lista<T> {
 		return lista;
 	}
 
+	public void enlistar(T t) {
+		lista.add(t);
+	}
+
 }

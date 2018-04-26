@@ -2,17 +2,18 @@ package modelo;
 
 import java.util.ArrayDeque;
 import java.util.Collection;
+import java.util.LinkedList;
 
 import utiles.Constantes;
 import vista.Casilla;
 
 public class Cola<T> {
-	private ArrayDeque<T> cola;
+	private LinkedList<T> cola;
 	private MemorizadorCola memoriaCola;
 
 	public Cola() {
 		super();
-		this.cola = new ArrayDeque<>();
+		this.cola = new LinkedList<>();
 		this.memoriaCola = new MemorizadorCola();
 	}
 
@@ -24,7 +25,7 @@ public class Cola<T> {
 		}
 	}
 
-	public ArrayDeque<T> getCola() {
+	public LinkedList<T> getCola() {
 		return cola;
 	}
 
@@ -34,5 +35,14 @@ public class Cola<T> {
 
 	public Collection<T> getCollectionCola() {
 		return cola;
+	}
+	
+	private boolean compararHistorial(Cola cola, Colores color) {
+		for (int i = cola.getCola().size()-Constantes.TAMANO_HISTORICO; i < cola.getCola().size(); i++) {
+			if (color==cola.getCola().get(i)) {
+				return true;
+			}
+		}
+		return false;
 	}
 }

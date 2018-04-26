@@ -2,21 +2,23 @@ package modelo;
 
 import java.util.ArrayDeque;
 import java.util.Collection;
+import java.util.LinkedList;
+
 import vista.Casilla;
 
 public class MemorizadorCola<T> {
-private ArrayDeque<T> memoriaCola;
+private LinkedList<T> memoriaCola;
 	
 	
 	public MemorizadorCola() {
 		super();
-		this.memoriaCola = new ArrayDeque<>();
+		this.memoriaCola = new LinkedList<>();
 	}
 	
 	public void encolar(T cosa) {
 		this.memoriaCola.push(cosa);
 	}
-	public ArrayDeque<T> getCola() {
+	public LinkedList<T> getCola() {
 		return memoriaCola;
 	}
 	public T desencolar(){

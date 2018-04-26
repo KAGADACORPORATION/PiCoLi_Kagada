@@ -1,7 +1,10 @@
 package interfaces;
+
+import modelo.Datos;
+
 public interface Iniciable {
 
-  public void iniciarPrograma();
+  public void iniciarCola();
 
   public void mostrarCambios();
 

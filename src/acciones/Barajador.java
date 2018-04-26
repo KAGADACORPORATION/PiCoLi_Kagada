@@ -7,6 +7,7 @@ import java.util.Stack;
 import org.junit.Test;
 
 import interfaces.Barajable;
+import modelo.Colores;
 import modelo.Datos;
 import utiles.Constantes;
 import utiles.Utiles;
@@ -26,17 +27,18 @@ public class Barajador implements ActionListener, Barajable {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		barajarColor(datos);
+		System.out.println("Barajar");
 	}
 
 	private void addToPila(Stack temporal, int numeroRandom, Datos datos) {
 		if (numeroRandom == 0) {
-			if (datos.pilaUno.getPila().size() < Constantes.TAMANO_PILA) {
-				datos.pilaUno.getPila().add(temporal.pop());
-			}else datos.pilaDos.getPila().add(temporal.pop());
+			if (datos.getPilaUno().getPila().size() < Constantes.TAMANO_PILA) {
+				datos.getPilaUno().enpilar((Colores) temporal.pop());
+			}else datos.getPilaDos().enpilar((Colores) temporal.pop());
 			
-		} else if (datos.pilaDos.getPila().size() < Constantes.TAMANO_PILA) {
-			datos.pilaDos.getPila().add(temporal.pop());
-		}else datos.pilaUno.getPila().add(temporal.pop());
+		} else if (datos.getPilaDos().getPila().size() < Constantes.TAMANO_PILA) {
+			datos.getPilaDos().enpilar((Colores) temporal.pop());
+		}else datos.getPilaUno().enpilar((Colores) temporal.pop());
 			
 		
 	}
@@ -44,11 +46,11 @@ public class Barajador implements ActionListener, Barajable {
 	@Override
 	public void barajarColor(Datos datos) {
 		Stack temporal = new Stack();
-		for (int i = 0; i < datos.pilaUno.getPila().size(); i++) {
-			temporal.add(datos.pilaUno.desenpilar());
+		for (int i = 0; i < datos.getPilaUno().getPila().size(); i++) {
+			temporal.add(datos.getPilaUno().desenpilar());
 		}
-		for (int i = 0; i < datos.pilaDos.getPila().size(); i++) {
-			temporal.add(datos.pilaDos.desenpilar());
+		for (int i = 0; i < datos.getPilaDos().getPila().size(); i++) {
+			temporal.add(datos.getPilaDos().desenpilar());
 		}
 		for (int i = 0; i < temporal.size(); i++) {
 			addToPila(temporal, Utiles.numeroRandom01(), datos);

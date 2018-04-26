@@ -12,22 +12,19 @@ import utiles.Utiles;
 import vista.Casilla;
 
 public class Iniciador implements Iniciable{
-	private Cola cola;
-	private Pila pila, pilaDos;
-	private Lista lista;
-	private Logica logica;
+	Datos datos;
 	
+	public Iniciador(Datos datos) {
+		super();
+		this.datos = datos;
+	}
+
 	@Override
-	public void iniciarPrograma() {
-		this.cola = new Cola();
+	public void iniciarCola() {
 		for (int i = 0; i < Constantes.TAMANO_COLA; i++) {
 			int numero = Utiles.genNumeroRandom(0,Colores.getCantidadElementos()-1);
-			this.cola.encolar(new Casilla(Colores.getElement(numero).toString()));
+			datos.getCola().encolar(Colores.getElement(numero));
 		}
-		this.pila = new Pila();
-		this.pilaDos = new Pila();
-		this.lista = new Lista();
-		
 	}
 
 	@Override
@@ -36,12 +33,8 @@ public class Iniciador implements Iniciable{
 		
 	}
 
-	public Logica crearLogica() {
-		logica=new Logica();
-		return logica;
-	}
-	public Datos crearDatos() {
-		Datos datos=new Datos(cola,lista,pila,pilaDos);
-		return datos;
-	}
+//	public Logica crearLogica() {
+//		logica=new Logica();
+//		return logica;
+//	}
 }

@@ -48,7 +48,7 @@ public class Seleccionador implements ActionListener{
 		Colores nuevoColor;
 		do {
 			nuevoColor = generarColor();
-		} while (validarColor(this.datos.getHistorico(),nuevoColor));
+		} while (!validarColor(this.datos.getHistorico(),nuevoColor));
 		return nuevoColor;
 	}
 

@@ -1,17 +1,16 @@
 package modelo;
 
-import java.awt.List;
 import java.util.ArrayList;
 
-public class Lista<T> {
+public class Lista {
 
-	private ArrayList<T> lista = new ArrayList();
+	private ArrayList<Colores> lista = new ArrayList<Colores>();
 
-	public ArrayList<T> getLista() {
+	public ArrayList<Colores> getLista() {
 		return lista;
 	}
 
-	public void enlistar(T t) {
+	public void enlistar(Colores t) {
 		lista.add(t);
 	}
 

@@ -7,22 +7,22 @@ import java.util.Vector;
 
 public class Datos {
 
-	private Cola<Colores> cola;
-	private Lista<Colores> lista;
-	private Pila<Colores> pilaUno;
-	private Pila<Colores> pilaDos;
+	private Cola cola;
+	private Lista lista;
+	private Pila pilaUno;
+	private Pila pilaDos;
 	private MemorizadorCola memoriaCola;
 
 	public Datos() {
 		super();
-		this.cola = new Cola<>();
-		this.lista = new Lista<>();
-		this.pilaUno = new Pila<>();
-		this.pilaDos = new Pila<>();
+		this.cola = new Cola();
+		this.lista = new Lista();
+		this.pilaUno = new Pila();
+		this.pilaDos = new Pila();
 		this.memoriaCola = new MemorizadorCola();
 	}
 	
-	public Cola<Colores> getCola() {
+	public Cola getCola() {
 		return cola;
 	}
 	
@@ -30,15 +30,15 @@ public class Datos {
 		return memoriaCola;
 	}
 
-	public Lista<Colores> getLista() {
+	public Lista getLista() {
 		return lista;
 	}
 
-	public Pila<Colores> getPilaUno() {
+	public Pila getPilaUno() {
 		return pilaUno;
 	}
 
-	public Pila<Colores> getPilaDos() {
+	public Pila getPilaDos() {
 		return pilaDos;
 	}
 

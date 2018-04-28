@@ -1,5 +1,9 @@
 package acciones;
 
+import java.util.Iterator;
+
+import javax.swing.JPanel;
+
 import control.Logica;
 import interfaces.Iniciable;
 import modelo.Cola;
@@ -12,29 +16,29 @@ import utiles.Utiles;
 import vista.Casilla;
 
 public class Iniciador implements Iniciable{
-	Datos datos;
+	private Datos datos;
+	private Logica logica;
+	private JPanel cola;
 	
-	public Iniciador(Datos datos) {
+	public Iniciador(JPanel cola) {
 		super();
-		this.datos = datos;
+		this.datos = new Datos();
+		this.logica = new Logica(this.datos);
+		this.logica.iniciarCola();
+		this.cola = cola;
 	}
 
 	@Override
-	public void iniciarCola() {
-		for (int i = 0; i < Constantes.TAMANO_COLA; i++) {
-			int numero = Utiles.genNumeroRandom(0,Colores.getCantidadElementos()-1);
-			datos.getCola().encolar(Colores.getElement(numero));
-		}
+	public void iniciarColaVista() {
+		//TODO generar JLabels segun la cola de la logica
 	}
 
-	@Override
-	public void mostrarCambios() {
-		// TODO Auto-generated method stu
-		
+	public Datos crearDatos() {
+		return this.datos;
 	}
 
-//	public Logica crearLogica() {
-//		logica=new Logica();
-//		return logica;
-//	}
+	public Logica crearLogica() {
+		return this.logica;
+	}
+
 }

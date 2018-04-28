@@ -4,8 +4,7 @@ import modelo.Datos;
 
 public interface Iniciable {
 
-  public void iniciarCola();
+  public void iniciarColaVista();
 
-  public void mostrarCambios();
 
 }

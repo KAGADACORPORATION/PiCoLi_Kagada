@@ -3,6 +3,8 @@ package acciones;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JPanel;
+
 import interfaces.Borrable;
 import modelo.Datos;
 import vista.Casilla;
@@ -11,15 +13,18 @@ public class Borrador implements ActionListener,Borrable {
 
 	Actualizador actualizador;
 	Datos datos;
-	public Borrador(Datos datos, Actualizador actualizador) {
+	JPanel lista;
+	public Borrador(JPanel lista, Datos datos, Actualizador actualizador) {
 		super();
 		this.datos = datos;
 		this.actualizador = actualizador;
+		this.lista=lista;
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Casilla etiquetaActual = ((Casilla)e.getSource());
 		borrarColor(etiquetaActual.getColor(),datos);
+		actualizar();
 	}
 	//QUEDA PENDIENTE DE LA LISTA
 	@Override

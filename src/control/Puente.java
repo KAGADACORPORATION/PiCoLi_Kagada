@@ -28,8 +28,12 @@ public class Puente extends VistaPrincipal {
 		this.actualizador = new Actualizador(vistaPrincipal);
 		this.seleccionarColor = new Seleccionador(this.panelSeleccionarColor, this.botonSeleccionarColor,this.datos,this.actualizador);
 		this.botonSeleccionarColor.addActionListener(seleccionarColor);
+//		this.pedirColor = new Pedidor(AQUI LOS PANELES QUE VAS A USAR MAS LOGICA ETC LO QUE NECESITES COMO EJEMPLO LA LINEA 29);
 		this.botonPedirColor.addActionListener(pedirColor);
+//		this.borrarColor = new Borrador(datos, actualizador, Y LO QUE NECESITES MAS)
 		this.botonBorrarColor.addActionListener(borrarColor);
+//		this.barajarPila = new Barajador(datos, actualizador, Y LO QUE NECESITES)
+//		ADEMAS TENDRAS QUE ADAPTAR EL CONSTRUCTOR DE LAS ACCIONES PARA QUE RECOJAN ESTA INFORMACION
 		this.botonBarajarPila.addActionListener(barajarPila);
 		actualizador.actualizar();
 	}

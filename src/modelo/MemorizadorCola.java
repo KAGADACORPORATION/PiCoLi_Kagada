@@ -6,8 +6,8 @@ import java.util.LinkedList;
 
 import vista.Casilla;
 
-public class MemorizadorCola<T> {
-private LinkedList<T> memoriaCola;
+public class MemorizadorCola {
+private LinkedList<Colores> memoriaCola;
 	
 	
 	public MemorizadorCola() {
@@ -15,16 +15,16 @@ private LinkedList<T> memoriaCola;
 		this.memoriaCola = new LinkedList<>();
 	}
 	
-	public void encolar(T cosa) {
+	public void encolar(Colores cosa) {
 		this.memoriaCola.push(cosa);
 	}
-	public LinkedList<T> getCola() {
+	public LinkedList<Colores> getCola() {
 		return memoriaCola;
 	}
-	public T desencolar(){
+	public Colores desencolar(){
 		return this.memoriaCola.pop();
 	}
-	public Collection<T> getCollectionCola(){
+	public Collection<Colores> getCollectionCola(){
 		return memoriaCola;
 	}
 	public int getTamanioMemoriaCola() {
@@ -32,5 +32,8 @@ private LinkedList<T> memoriaCola;
 	}
 	public void eliminarSextoDeMemoriaCola() {
 		memoriaCola.removeLast();
+	}
+	public Colores obtenerElementoPosicion (int posicion) {
+		return (Colores) this.memoriaCola.get(posicion);
 	}
 }

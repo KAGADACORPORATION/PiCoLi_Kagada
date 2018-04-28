@@ -21,19 +21,17 @@ public class Puente extends VistaPrincipal {
 	
 	public Puente() {
 		super();
-		Iniciador iniciador = new Iniciador();
-		datos = iniciador.crearDatos();
+		Iniciador iniciador = new Iniciador(this.cola);
+		this.datos = iniciador.crearDatos();
 		this.vistaPrincipal = new VistaPrincipal();
-		this.logica = new Logica();
+		this.logica = iniciador.crearLogica();
 		this.actualizador = new Actualizador(vistaPrincipal);
-		this.seleccionarColor = new Seleccionador(this.panelSeleccionarColor, this.botonSeleccionarColor,this.datos);
+		this.seleccionarColor = new Seleccionador(this.panelSeleccionarColor, this.botonSeleccionarColor,this.datos,this.actualizador);
 		this.botonSeleccionarColor.addActionListener(seleccionarColor);
 		this.botonPedirColor.addActionListener(pedirColor);
 		this.botonBorrarColor.addActionListener(borrarColor);
 		this.botonBarajarPila.addActionListener(barajarPila);
-		
-	
-
+		actualizador.actualizar();
 	}
 
 }

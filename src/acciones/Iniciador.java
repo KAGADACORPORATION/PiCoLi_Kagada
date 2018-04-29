@@ -1,6 +1,9 @@
 package acciones;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Iterator;
+import java.util.ListIterator;
 
 import javax.swing.JPanel;
 
@@ -26,11 +29,17 @@ public class Iniciador implements Iniciable{
 		this.logica = new Logica(this.datos);
 		this.logica.iniciarCola();
 		this.cola = cola;
+		iniciarColaVista();
 	}
 
 	@Override
 	public void iniciarColaVista() {
 		//TODO generar JLabels segun la cola de la logica
+		for (Iterator<Colores> iterator = this.datos.getCola().getCola().iterator(); iterator.hasNext();) {
+			Colores color = iterator.next();
+				Casilla nuevaCasilla = new Casilla(color.name());
+				this.cola.add(nuevaCasilla);
+		}
 	}
 
 	public Datos crearDatos() {

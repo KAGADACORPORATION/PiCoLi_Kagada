@@ -1,13 +1,11 @@
 package acciones;
 
-import vista.VistaPrincipal;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 public class Actualizador {
-	VistaPrincipal vistaPrincipal;
-  public Actualizador(VistaPrincipal vistaPrincipal) {
-	  this.vistaPrincipal = vistaPrincipal;
-  }
-  	public void actualizar (){
-  	  this.vistaPrincipal.revalidate();
+	
+  	public void actualizar (JPanel panel){
+  		SwingUtilities.updateComponentTreeUI(panel);
   	}
 }

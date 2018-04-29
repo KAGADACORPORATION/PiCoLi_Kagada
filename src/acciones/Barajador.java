@@ -57,8 +57,10 @@ public class Barajador implements ActionListener, Barajable {
 		}
 
 	}
+	//TODO este metodo tiene que coger los datos de la pila de la logica y 
+//	manejar pintar los JLabels en el lugar correspondiente
 	@Override
 	public void actualizar() {
-		this.actualizador.actualizar();		
+			
 	}
 }

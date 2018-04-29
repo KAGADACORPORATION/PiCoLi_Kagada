@@ -24,6 +24,7 @@ import java.awt.Insets;
 import javax.swing.border.LineBorder;
 import java.awt.Cursor;
 import javax.swing.border.BevelBorder;
+import javax.swing.ImageIcon;
 
 public class VistaPrincipal extends JFrame{
 	protected JLabel puntosMonedas;
@@ -42,6 +43,9 @@ public class VistaPrincipal extends JFrame{
 	protected JButton botonSeleccionarColor;
 	
 	public VistaPrincipal() {
+		setSize(new Dimension(600, 400));
+		setMinimumSize(new Dimension(300, 150));
+		setPreferredSize(new Dimension(600, 400));
 		getContentPane().setBackground(new Color(255, 255, 255));
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] {33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 14};
@@ -51,7 +55,7 @@ public class VistaPrincipal extends JFrame{
 		getContentPane().setLayout(gridBagLayout);
 		
 		JLabel titulo = new JLabel("PI-CO-LI");
-		titulo.setMinimumSize(new Dimension(300, 40));
+		titulo.setMinimumSize(new Dimension(300, 30));
 		titulo.setForeground(new Color(25, 25, 112));
 		titulo.setFont(new Font("Algerian", Font.BOLD, 30));
 		titulo.setHorizontalTextPosition(SwingConstants.LEADING);
@@ -65,16 +69,15 @@ public class VistaPrincipal extends JFrame{
 		getContentPane().add(titulo, gbc_titulo);
 		
 		cola = new JPanel();
-		cola.setBorder(new LineBorder(new Color(0, 0, 255)));
-		cola.setBackground(new Color(240, 248, 255));
+		cola.setFocusable(false);
 		GridBagConstraints gbc_cola = new GridBagConstraints();
+		gbc_cola.insets = new Insets(2, 2, 2, 2);
 		gbc_cola.gridheight = 5;
-		gbc_cola.insets = new Insets(0, 0, 5, 5);
 		gbc_cola.fill = GridBagConstraints.BOTH;
 		gbc_cola.gridx = 0;
 		gbc_cola.gridy = 1;
 		getContentPane().add(cola, gbc_cola);
-		cola.setLayout(new GridLayout(9, 1, 0, 0));
+		cola.setLayout(new GridLayout(10, 1, 0, 0));
 		
 		pilaUno = new JPanel();
 		pilaUno.setBorder(new LineBorder(new Color(0, 0, 255), 1, true));
@@ -144,6 +147,8 @@ public class VistaPrincipal extends JFrame{
 		lista.setLayout(new GridLayout(5, 7, 0, 0));
 		
 		panelSeleccionarColor = new JPanel();
+		panelSeleccionarColor.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		panelSeleccionarColor.setMinimumSize(new Dimension(10, 22));
 		GridBagConstraints gbc_panelSeleccionarColor = new GridBagConstraints();
 		gbc_panelSeleccionarColor.gridwidth = 3;
 		gbc_panelSeleccionarColor.insets = new Insets(0, 0, 5, 5);
@@ -154,15 +159,19 @@ public class VistaPrincipal extends JFrame{
 		panelSeleccionarColor.setLayout(new BoxLayout(panelSeleccionarColor, BoxLayout.X_AXIS));
 		
 		botonSeleccionarColor = new JButton("Selecciona Color");
+		botonSeleccionarColor.setMargin(new Insets(0, 0, 0, 0));
 		panelSeleccionarColor.add(botonSeleccionarColor);
-		botonSeleccionarColor.setPreferredSize(new Dimension(111, 29));
+		botonSeleccionarColor.setPreferredSize(new Dimension(100, 22));
 		botonSeleccionarColor.setMinimumSize(new Dimension(10, 22));
-		botonSeleccionarColor.setMaximumSize(new Dimension(999, 33));
-		botonSeleccionarColor.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		botonSeleccionarColor.setMaximumSize(new Dimension(999, 100));
+		botonSeleccionarColor.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		botonSeleccionarColor.setBorder(new LineBorder(new Color(0, 255, 0), 1, true));
 		botonSeleccionarColor.setBackground(new Color(204, 255, 153));
 		
+		
 		panelPedirColor = new JPanel();
+		panelPedirColor.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		panelPedirColor.setMinimumSize(new Dimension(10, 22));
 		GridBagConstraints gbc_panelPedirColor = new GridBagConstraints();
 		gbc_panelPedirColor.gridwidth = 3;
 		gbc_panelPedirColor.insets = new Insets(0, 0, 5, 5);
@@ -173,13 +182,15 @@ public class VistaPrincipal extends JFrame{
 		panelPedirColor.setLayout(new BoxLayout(panelPedirColor, BoxLayout.X_AXIS));
 		
 		botonPedirColor = new JButton("Pedir Color (x5)\r\n");
+		botonPedirColor.setPreferredSize(new Dimension(100, 22));
 		
 		botonPedirColor.setMinimumSize(new Dimension(10, 22));
-		botonPedirColor.setMaximumSize(new Dimension(999, 33));
+		botonPedirColor.setMaximumSize(new Dimension(999, 55));
 		botonPedirColor.setBackground(new Color(255, 204, 0));
 		panelPedirColor.add(botonPedirColor);
 		
 		panelBarajarPila = new JPanel();
+		panelBarajarPila.setMinimumSize(new Dimension(10, 22));
 		GridBagConstraints gbc_panelBarajarPila = new GridBagConstraints();
 		gbc_panelBarajarPila.gridwidth = 3;
 		gbc_panelBarajarPila.insets = new Insets(0, 0, 5, 5);
@@ -190,12 +201,15 @@ public class VistaPrincipal extends JFrame{
 		panelBarajarPila.setLayout(new BoxLayout(panelBarajarPila, BoxLayout.X_AXIS));
 		
 		botonBarajarPila = new JButton("Barajar Pila (x3)");
+		botonBarajarPila.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		botonBarajarPila.setPreferredSize(new Dimension(100, 22));
 		botonBarajarPila.setMinimumSize(new Dimension(10, 22));
 		botonBarajarPila.setMaximumSize(new Dimension(999, 33));
 		botonBarajarPila.setBackground(new Color(255, 204, 0));
 		panelBarajarPila.add(botonBarajarPila);
 		
 		panelBorrarColor = new JPanel();
+		panelBorrarColor.setMinimumSize(new Dimension(10, 22));
 		GridBagConstraints gbc_panelBorrarColor = new GridBagConstraints();
 		gbc_panelBorrarColor.gridwidth = 3;
 		gbc_panelBorrarColor.insets = new Insets(0, 0, 5, 0);
@@ -206,6 +220,8 @@ public class VistaPrincipal extends JFrame{
 		panelBorrarColor.setLayout(new BoxLayout(panelBorrarColor, BoxLayout.X_AXIS));
 		
 		botonBorrarColor = new JButton("Borrar Color (x2)");
+		botonBorrarColor.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		botonBorrarColor.setPreferredSize(new Dimension(100, 22));
 		botonBorrarColor.setMinimumSize(new Dimension(10, 22));
 		botonBorrarColor.setMaximumSize(new Dimension(999, 33));
 		botonBorrarColor.setBackground(new Color(255, 204, 0));

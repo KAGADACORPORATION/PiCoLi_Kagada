@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Stack;
 
+import javax.swing.JPanel;
+
 import org.junit.Test;
 
 import interfaces.Barajable;
@@ -16,36 +18,40 @@ public class Barajador implements ActionListener, Barajable {
 
 	Datos datos;
 	Actualizador actualizador;
-	
-	public Barajador(Datos datos, Actualizador actualizador) {
+	JPanel pilaUno;
+	JPanel pilaDos;
+
+	public Barajador(JPanel pilaUno, JPanel pilaDos, Datos datos, Actualizador actualizador) {
 		super();
 		this.datos = datos;
 		this.actualizador = actualizador;
-		
+		this.pilaUno = pilaUno;
+		this.pilaDos=pilaDos;
 	}
-	
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		barajarColor(datos);
-		System.out.println("Barajar");
+		actualizar();
 	}
 
-	private void addToPila(Stack temporal, int numeroRandom, Datos datos) {
+	private void addToPila(Stack<Colores> temporal, int numeroRandom, Datos datos) {
 		if (numeroRandom == 0) {
 			if (datos.getPilaUno().getPila().size() < Constantes.TAMANO_PILA) {
 				datos.getPilaUno().enpilar((Colores) temporal.pop());
-			}else datos.getPilaDos().enpilar((Colores) temporal.pop());
-			
+			} else
+				datos.getPilaDos().enpilar((Colores) temporal.pop());
+
 		} else if (datos.getPilaDos().getPila().size() < Constantes.TAMANO_PILA) {
 			datos.getPilaDos().enpilar((Colores) temporal.pop());
-		}else datos.getPilaUno().enpilar((Colores) temporal.pop());
-			
-		
+		} else
+			datos.getPilaUno().enpilar((Colores) temporal.pop());
+
 	}
 
 	@Override
 	public void barajarColor(Datos datos) {
-		Stack temporal = new Stack();
+		Stack<Colores> temporal = new Stack();
 		for (int i = 0; i < datos.getPilaUno().getPila().size(); i++) {
 			temporal.add(datos.getPilaUno().desenpilar());
 		}
@@ -57,10 +63,5 @@ public class Barajador implements ActionListener, Barajable {
 		}
 
 	}
-	//TODO este metodo tiene que coger los datos de la pila de la logica y 
-//	manejar pintar los JLabels en el lugar correspondiente
-	@Override
-	public void actualizar() {
-			
 	}
 }

@@ -26,13 +26,14 @@ public class Barajador implements ActionListener, Barajable {
 		this.datos = datos;
 		this.actualizador = actualizador;
 		this.pilaUno = pilaUno;
-		this.pilaDos=pilaDos;
+		this.pilaDos = pilaDos;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		barajarColor(datos);
-		actualizar();
+		barajarColor(this.datos);
+		this.actualizador.actualizar(this.pilaUno);
+		this.actualizador.actualizar(this.pilaUno);
 	}
 
 	private void addToPila(Stack<Colores> temporal, int numeroRandom, Datos datos) {
@@ -62,6 +63,5 @@ public class Barajador implements ActionListener, Barajable {
 			addToPila(temporal, Utiles.numeroRandom01(), datos);
 		}
 
-	}
 	}
 }

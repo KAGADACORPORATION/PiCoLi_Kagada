@@ -48,9 +48,9 @@ public class VistaPrincipal extends JFrame{
 		setPreferredSize(new Dimension(600, 400));
 		getContentPane().setBackground(new Color(255, 255, 255));
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[] {33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 14};
+		gridBagLayout.columnWidths = new int[] {20, 55, 26, 27, 33, 33, 33, 33, 33, 33, 33, 33, 33, 14};
 		gridBagLayout.rowHeights = new int[] {37, 20, 44, 48, 28, 40, 32, 20, 10};
-		gridBagLayout.columnWeights = new double[]{1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
+		gridBagLayout.columnWeights = new double[]{0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
 		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 1.0, 1.0, 0.0, 1.0, 0.0, 0.0, Double.MIN_VALUE};
 		getContentPane().setLayout(gridBagLayout);
 		
@@ -61,7 +61,7 @@ public class VistaPrincipal extends JFrame{
 		titulo.setHorizontalTextPosition(SwingConstants.LEADING);
 		titulo.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_titulo = new GridBagConstraints();
-		gbc_titulo.gridwidth = 12;
+		gbc_titulo.gridwidth = 13;
 		gbc_titulo.insets = new Insets(0, 0, 5, 0);
 		gbc_titulo.fill = GridBagConstraints.BOTH;
 		gbc_titulo.gridx = 0;
@@ -71,10 +71,10 @@ public class VistaPrincipal extends JFrame{
 		cola = new JPanel();
 		cola.setFocusable(false);
 		GridBagConstraints gbc_cola = new GridBagConstraints();
-		gbc_cola.insets = new Insets(2, 2, 2, 2);
+		gbc_cola.insets = new Insets(2, 2, 5, 5);
 		gbc_cola.gridheight = 5;
 		gbc_cola.fill = GridBagConstraints.BOTH;
-		gbc_cola.gridx = 0;
+		gbc_cola.gridx = 1;
 		gbc_cola.gridy = 1;
 		getContentPane().add(cola, gbc_cola);
 		cola.setLayout(new GridLayout(10, 1, 0, 0));
@@ -86,7 +86,7 @@ public class VistaPrincipal extends JFrame{
 		gbc_pilaUno.gridheight = 5;
 		gbc_pilaUno.insets = new Insets(0, 0, 5, 5);
 		gbc_pilaUno.fill = GridBagConstraints.BOTH;
-		gbc_pilaUno.gridx = 1;
+		gbc_pilaUno.gridx = 2;
 		gbc_pilaUno.gridy = 1;
 		getContentPane().add(pilaUno, gbc_pilaUno);
 		pilaUno.setLayout(new GridLayout(4, 1, 0, 0));
@@ -98,7 +98,7 @@ public class VistaPrincipal extends JFrame{
 		gbc_pilaDos.gridheight = 5;
 		gbc_pilaDos.insets = new Insets(0, 0, 5, 5);
 		gbc_pilaDos.fill = GridBagConstraints.BOTH;
-		gbc_pilaDos.gridx = 2;
+		gbc_pilaDos.gridx = 3;
 		gbc_pilaDos.gridy = 1;
 		getContentPane().add(pilaDos, gbc_pilaDos);
 		pilaDos.setLayout(new GridLayout(4, 1, 0, 0));
@@ -114,7 +114,7 @@ public class VistaPrincipal extends JFrame{
 		gbc_tituloMonedas.fill = GridBagConstraints.BOTH;
 		gbc_tituloMonedas.gridwidth = 7;
 		gbc_tituloMonedas.insets = new Insets(0, 0, 5, 5);
-		gbc_tituloMonedas.gridx = 3;
+		gbc_tituloMonedas.gridx = 4;
 		gbc_tituloMonedas.gridy = 1;
 		getContentPane().add(tituloMonedas, gbc_tituloMonedas);
 		
@@ -129,7 +129,7 @@ public class VistaPrincipal extends JFrame{
 		gbc_puntosMonedas.gridwidth = 2;
 		gbc_puntosMonedas.fill = GridBagConstraints.BOTH;
 		gbc_puntosMonedas.insets = new Insets(0, 0, 5, 0);
-		gbc_puntosMonedas.gridx = 10;
+		gbc_puntosMonedas.gridx = 11;
 		gbc_puntosMonedas.gridy = 1;
 		getContentPane().add(puntosMonedas, gbc_puntosMonedas);
 		
@@ -141,7 +141,7 @@ public class VistaPrincipal extends JFrame{
 		gbc_lista.gridheight = 4;
 		gbc_lista.insets = new Insets(0, 0, 5, 0);
 		gbc_lista.fill = GridBagConstraints.BOTH;
-		gbc_lista.gridx = 3;
+		gbc_lista.gridx = 4;
 		gbc_lista.gridy = 2;
 		getContentPane().add(lista, gbc_lista);
 		lista.setLayout(new GridLayout(5, 7, 0, 0));
@@ -153,14 +153,14 @@ public class VistaPrincipal extends JFrame{
 		gbc_panelSeleccionarColor.gridwidth = 3;
 		gbc_panelSeleccionarColor.insets = new Insets(0, 0, 5, 5);
 		gbc_panelSeleccionarColor.fill = GridBagConstraints.BOTH;
-		gbc_panelSeleccionarColor.gridx = 0;
+		gbc_panelSeleccionarColor.gridx = 1;
 		gbc_panelSeleccionarColor.gridy = 6;
 		getContentPane().add(panelSeleccionarColor, gbc_panelSeleccionarColor);
 		panelSeleccionarColor.setLayout(new BoxLayout(panelSeleccionarColor, BoxLayout.X_AXIS));
 		
 		botonSeleccionarColor = new JButton("Selecciona Color");
-		botonSeleccionarColor.setMargin(new Insets(0, 0, 0, 0));
 		panelSeleccionarColor.add(botonSeleccionarColor);
+		botonSeleccionarColor.setMargin(new Insets(0, 0, 0, 0));
 		botonSeleccionarColor.setPreferredSize(new Dimension(100, 22));
 		botonSeleccionarColor.setMinimumSize(new Dimension(10, 22));
 		botonSeleccionarColor.setMaximumSize(new Dimension(999, 100));
@@ -176,7 +176,7 @@ public class VistaPrincipal extends JFrame{
 		gbc_panelPedirColor.gridwidth = 3;
 		gbc_panelPedirColor.insets = new Insets(0, 0, 5, 5);
 		gbc_panelPedirColor.fill = GridBagConstraints.BOTH;
-		gbc_panelPedirColor.gridx = 3;
+		gbc_panelPedirColor.gridx = 4;
 		gbc_panelPedirColor.gridy = 6;
 		getContentPane().add(panelPedirColor, gbc_panelPedirColor);
 		panelPedirColor.setLayout(new BoxLayout(panelPedirColor, BoxLayout.X_AXIS));
@@ -195,7 +195,7 @@ public class VistaPrincipal extends JFrame{
 		gbc_panelBarajarPila.gridwidth = 3;
 		gbc_panelBarajarPila.insets = new Insets(0, 0, 5, 5);
 		gbc_panelBarajarPila.fill = GridBagConstraints.BOTH;
-		gbc_panelBarajarPila.gridx = 6;
+		gbc_panelBarajarPila.gridx = 7;
 		gbc_panelBarajarPila.gridy = 6;
 		getContentPane().add(panelBarajarPila, gbc_panelBarajarPila);
 		panelBarajarPila.setLayout(new BoxLayout(panelBarajarPila, BoxLayout.X_AXIS));
@@ -214,7 +214,7 @@ public class VistaPrincipal extends JFrame{
 		gbc_panelBorrarColor.gridwidth = 3;
 		gbc_panelBorrarColor.insets = new Insets(0, 0, 5, 0);
 		gbc_panelBorrarColor.fill = GridBagConstraints.BOTH;
-		gbc_panelBorrarColor.gridx = 9;
+		gbc_panelBorrarColor.gridx = 10;
 		gbc_panelBorrarColor.gridy = 6;
 		getContentPane().add(panelBorrarColor, gbc_panelBorrarColor);
 		panelBorrarColor.setLayout(new BoxLayout(panelBorrarColor, BoxLayout.X_AXIS));
@@ -234,7 +234,7 @@ public class VistaPrincipal extends JFrame{
 		GridBagConstraints gbc_mensaje = new GridBagConstraints();
 		gbc_mensaje.fill = GridBagConstraints.BOTH;
 		gbc_mensaje.gridwidth = 12;
-		gbc_mensaje.gridx = 0;
+		gbc_mensaje.gridx = 1;
 		gbc_mensaje.gridy = 7;
 		getContentPane().add(mensaje, gbc_mensaje);
 	}

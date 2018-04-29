@@ -12,7 +12,7 @@ private LinkedList<Colores> memoriaCola;
 	
 	public MemorizadorCola() {
 		super();
-		this.memoriaCola = new LinkedList<>();
+		this.memoriaCola = new LinkedList<Colores>();
 	}
 	
 	public void encolar(Colores cosa) {

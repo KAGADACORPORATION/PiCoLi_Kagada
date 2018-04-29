@@ -63,9 +63,5 @@ public class Barajador implements ActionListener, Barajable {
 		}
 
 	}
-
-	@Override
-	public void actualizar() {
-		this.actualizador.actualizar();
 	}
 }

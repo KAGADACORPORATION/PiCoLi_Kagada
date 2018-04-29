@@ -33,9 +33,9 @@ public class Borrador implements ActionListener,Borrable {
 			datos.getLista().getLista().remove(color);
 		}
 	}
-
+	//TODO este metodo tiene que coger los datos de la lista de la logica y 
+//	manejar pintar los JLabels en el lugar correspondiente
 	@Override
 	public void actualizar() {
-		this.actualizador.actualizar();
 	}
 }

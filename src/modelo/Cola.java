@@ -3,6 +3,7 @@ package modelo;
 import java.util.ArrayDeque;
 import java.util.Collection;
 import java.util.LinkedList;
+import java.util.ListIterator;
 
 import utiles.Constantes;
 import vista.Casilla;
@@ -32,7 +33,7 @@ public class Cola{
 	public Colores desencolar() {
 		return this.cola.pop();
 	}
-	
+
 //	private boolean compararHistorial(Cola cola, Colores color) {
 //		for (int i = cola.getCola().size()-Constantes.TAMANO_HISTORICO; i < cola.getCola().size(); i++) {
 //			if (color==cola.getCola().get(i)) {

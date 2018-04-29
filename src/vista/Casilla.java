@@ -2,18 +2,22 @@ package vista;
 
 import java.awt.Dimension;
 
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.SizeSequence;
 import javax.swing.border.LineBorder;
 
 import modelo.Colores;
+import java.awt.Insets;
 
-public class Casilla extends JLabel {
+public class Casilla extends JButton implements Comparable<Colores>{
 
   private String color;
 
 public Casilla(String color) {
 	super();
+	setPreferredSize(new Dimension(25, 22));
+	setMargin(new Insets(2, 2, 2, 2));
 	this.color = color;
 	this.setMaximumSize(new Dimension(500, 500));
 	this.setText(" ");
@@ -25,5 +29,11 @@ public Casilla(String color) {
 public String getColor() {
 	return color;
 }
+
+@Override
+public int compareTo(Colores o) {
+	return this.getColor().toString().compareTo(o.getColor().toString());
+}
+
 
 }

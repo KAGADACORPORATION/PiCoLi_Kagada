@@ -21,17 +21,21 @@ public class Cola{
 	public void encolar(Colores color) {
 		this.cola.push(color);
 		this.memoriaCola.encolar(color);
-		if (this.memoriaCola.getTamanioMemoriaCola() > Constantes.TAMANO_HISTORICO) {
+		if (this.memoriaCola.getTamanioMemoriaCola() >= Constantes.TAMANO_HISTORICO) {
 			this.memoriaCola.eliminarSextoDeMemoriaCola();
 		}
 	}
-
+	
+	public  MemorizadorCola getHistorico() {
+		return this.memoriaCola;
+	}
+	
 	public LinkedList<Colores> getCola() {
 		return cola;
 	}
 
 	public Colores desencolar() {
-		return this.cola.pop();
+		return this.cola.removeLast();
 	}
 
 //	private boolean compararHistorial(Cola cola, Colores color) {

@@ -19,15 +19,10 @@ public class Datos {
 		this.lista = new Lista();
 		this.pilaUno = new Pila();
 		this.pilaDos = new Pila();
-		this.memoriaCola = new MemorizadorCola();
 	}
 	
 	public Cola getCola() {
 		return cola;
-	}
-	
-	public MemorizadorCola getHistorico() {
-		return memoriaCola;
 	}
 
 	public Lista getLista() {

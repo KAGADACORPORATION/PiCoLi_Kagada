@@ -60,7 +60,7 @@ public class Seleccionador implements ActionListener{
 		Colores nuevoColor;
 		do {
 			nuevoColor = generarColor();
-		} while (!validarColor(this.datos.getHistorico(),nuevoColor));
+		} while (!validarColor(this.datos.getCola().getHistorico(),nuevoColor));
 		return nuevoColor;
 	}
 
@@ -68,10 +68,12 @@ public class Seleccionador implements ActionListener{
 
 	private boolean validarColor(MemorizadorCola historico, Colores nuevoColor) {
 		boolean retorno = true;
+		int contador = 0;
 		for (int i = 0; i < historico.getTamanioMemoriaCola(); i++) {
 			Colores color = historico.obtenerElementoPosicion(i);
 			if (color.toString().equals(nuevoColor.toString())) {
-				retorno=false;
+				contador++;
+				if(contador==2)retorno=false;
 			}
 		}
 		return retorno;

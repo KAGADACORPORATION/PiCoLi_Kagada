@@ -13,6 +13,7 @@ import modelo.Colores;
 import modelo.Datos;
 import utiles.Constantes;
 import utiles.Utiles;
+import vista.Casilla;
 
 public class Barajador implements ActionListener, Barajable {
 
@@ -32,6 +33,14 @@ public class Barajador implements ActionListener, Barajable {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		barajarColor(this.datos);
+		for (int i = 0; i < Constantes.TAMANO_PILA; i++) {
+			this.pilaUno.remove(i);
+			this.pilaDos.remove(i);
+		}
+		for (int i = 0; i < Constantes.TAMANO_PILA; i++) {
+			this.pilaUno.add(new Casilla(datos.getPilaUno().desenpilar().toString()));
+			this.pilaDos.remove(i);
+		}
 		this.actualizador.actualizar(this.pilaUno);
 		this.actualizador.actualizar(this.pilaUno);
 	}

@@ -63,5 +63,10 @@ public class Barajador implements ActionListener, Barajable {
 		}
 
 	}
+
+	@Override
+	public void actualizar() {
+		// TODO Auto-generated method stub
+		
 	}
 }

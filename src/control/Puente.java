@@ -28,8 +28,8 @@ public class Puente extends VistaPrincipal {
 		this.vistaPrincipal = new VistaPrincipal();
 		this.logica = iniciador.crearLogica();
 		this.actualizador = new Actualizador();
-		this.encolador = new Encolador(this.datos,this.logica,this.cola,this.pilaUno,this.pilaDos,this.actualizador,this.lista,this.botonSeleccionarColor,this.panelSeleccionarColor);
-		this.seleccionarColor = new Seleccionador(this.panelSeleccionarColor, this.botonSeleccionarColor,this.datos,this.actualizador,this.encolador);
+		this.encolador = new Encolador(this.logica,this.cola,this.pilaUno,this.pilaDos,this.actualizador,this.lista,this.botonSeleccionarColor,this.panelSeleccionarColor);
+		this.seleccionarColor = new Seleccionador(this.panelSeleccionarColor, this.botonSeleccionarColor,this.logica,this.actualizador,this.encolador);
 		this.botonSeleccionarColor.addActionListener(seleccionarColor);
 //		this.pedirColor = new Pedidor(AQUI LOS PANELES QUE VAS A USAR MAS LOGICA ETC LO QUE NECESITES COMO EJEMPLO LA LINEA 29);
 		this.botonPedirColor.addActionListener(pedirColor);

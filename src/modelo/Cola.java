@@ -1,12 +1,7 @@
 package modelo;
 
-import java.util.ArrayDeque;
-import java.util.Collection;
 import java.util.LinkedList;
-import java.util.ListIterator;
-
 import utiles.Constantes;
-import vista.Casilla;
 
 public class Cola{
 	private LinkedList <Colores> cola;
@@ -20,7 +15,7 @@ public class Cola{
 
 	public void encolar(Colores color) {
 		this.cola.push(color);
-		this.memoriaCola.encolar(color);
+		this.memoriaCola.encolar(Colores.valueOf(color.toString()));
 		if (this.memoriaCola.getTamanioMemoriaCola() >= Constantes.TAMANO_HISTORICO) {
 			this.memoriaCola.eliminarSextoDeMemoriaCola();
 		}

@@ -6,5 +6,4 @@ public interface Barajable {
 
   public void barajarColor(Datos datos );
   
-  public void actualizar();
 }

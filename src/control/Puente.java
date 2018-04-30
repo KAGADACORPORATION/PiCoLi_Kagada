@@ -28,13 +28,13 @@ public class Puente extends VistaPrincipal {
 		this.datos = iniciador.crearDatos();
 		this.logica = iniciador.crearLogica();
 		this.actualizador = new Actualizador();
-		this.retroceso = new Retroceso(this.panelSeleccionarColor, this.botonSeleccionarColor,this.panelPedirColor,this.botonPedirColor, actualizador);
+		this.retroceso = new Retroceso(this.panelSeleccionarColor, this.botonSeleccionarColor,this.panelPedirColor,this.botonPedirColor, this.botonBorrarColor,this.panelBorrarColor,actualizador);
 		this.encolador = new Encolador(this.logica,this.cola,this.pilaUno,this.pilaDos,this.actualizador,this.lista,this.botonSeleccionarColor,this.panelSeleccionarColor,this.botonPedirColor,this.panelPedirColor);
 		this.seleccionarColor = new Seleccionador(this.panelSeleccionarColor, this.botonSeleccionarColor,this.logica,this.actualizador,this.encolador,this.retroceso);
 		this.botonSeleccionarColor.addActionListener(seleccionarColor);
 		this.pedirColor= new Pedidor(this.panelPedirColor, this.botonPedirColor,this.logica,this.actualizador,this.encolador,this.retroceso);
 		this.botonPedirColor.addActionListener(pedirColor);
-		this.borrarColor=new Borrador(this.lista,this.datos, this.actualizador);
+		this.borrarColor=new Borrador(this.lista,this.botonBorrarColor,this.panelBorrarColor,this.logica,this.datos, this.actualizador,this.encolador,this.retroceso);
 		this.botonBorrarColor.addActionListener(borrarColor);
 		
 		this.barajarPila= new Barajador(this.pilaUno,this.pilaDos,this.datos,this.actualizador);

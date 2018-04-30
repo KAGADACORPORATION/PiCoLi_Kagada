@@ -2,6 +2,7 @@ package acciones;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Stack;
 
 import javax.swing.JPanel;
@@ -36,17 +37,17 @@ public class Barajador implements ActionListener, Barajable {
 		this.pilaDos.removeAll();
 		barajarColor(this.datos);
 		for (int i = 0; i < this.datos.getPilaUno().getPila().size(); i++) {
-			this.pilaUno.add(new Casilla(datos.getPilaUno().desenpilar().toString()));
+			this.pilaUno.add(new Casilla(this.datos.getPilaUno().getPila().get(i).toString()));
 		}
 		for (int i = 0; i < this.datos.getPilaDos().getPila().size(); i++) {
-			this.pilaDos.add(new Casilla(datos.getPilaDos().desenpilar().toString()));
+			System.out.println(this.datos.getPilaDos().getPila().get(i).toString());
+			this.pilaDos.add(new Casilla(this.datos.getPilaDos().getPila().get(i).toString()));
 		}
-		System.out.println(this.datos.getPilaUno().getPila().size()+""+this.datos.getPilaDos().getPila().size());
 		this.actualizador.actualizar(this.pilaUno);
-		this.actualizador.actualizar(this.pilaUno);
+		this.actualizador.actualizar(this.pilaDos);
 	}
 
-	private void addToPila(Stack<Colores> temporal, int numeroRandom, Datos datos) {
+	private void addToPila(Object object, int numeroRandom, Datos datos) {
 //		for (int i = 0; i < temporal.size(); i++) {
 //			if (i % 2 == 0) {
 //				datos.getPilaUno().enpilar((temporal.get(i)));
@@ -54,31 +55,35 @@ public class Barajador implements ActionListener, Barajable {
 //				datos.getPilaDos().enpilar((temporal.get(i)));
 //			}
 //		}
+		System.out.println(datos.getPilaDos().getPila().size());
 		if (numeroRandom == 0) {
-			if (this.datos.getPilaUno().getPila().size() < Constantes.TAMANO_PILA) {
-				this.datos.getPilaUno().enpilar((Colores) temporal.pop());
+			if (datos.getPilaUno().getPila().size() < Constantes.TAMANO_PILA) {
+				datos.getPilaUno().enpilar((Colores) object);
 			} else
-				this.datos.getPilaDos().enpilar((Colores) temporal.pop());
+				datos.getPilaDos().enpilar((Colores) object);
 
-		} else if (this.datos.getPilaDos().getPila().size() < Constantes.TAMANO_PILA) {
-			this.datos.getPilaDos().enpilar((Colores) temporal.pop());
+		} else if (datos.getPilaDos().getPila().size() < Constantes.TAMANO_PILA) {
+			datos.getPilaDos().enpilar((Colores) object);
 		} else
-			this.datos.getPilaUno().enpilar((Colores) temporal.pop());
+			datos.getPilaUno().enpilar((Colores) object);
 	}
 
 	@Override
 	public void barajarColor(Datos datos) {
-		Stack temporal = new Stack();
+		ArrayList temporal = new ArrayList();
 		for (int i = 0; i < datos.getPilaUno().getPila().size(); i++) {
-			temporal.add(this.datos.getPilaUno().getPila().pop());
+			temporal.add(datos.getPilaUno().getPila().get(i));
 		}
+		datos.getPilaUno().getPila().removeAllElements();
+		
 		for (int i = 0; i < datos.getPilaDos().getPila().size(); i++) {
-			temporal.add(this.datos.getPilaDos().getPila().pop());
+			temporal.add(datos.getPilaDos().getPila().get(i));
 		}
+		datos.getPilaDos().getPila().removeAllElements();
 		for (int i = 0; i < temporal.size(); i++) {
-			addToPila(temporal, Utiles.numeroRandom01(), this.datos);
+			addToPila(temporal.get(i), Utiles.numeroRandom01(), datos);
 		}
-
+		temporal.clear();
 	}
 }
 

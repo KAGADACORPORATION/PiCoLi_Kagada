@@ -40,7 +40,6 @@ public class Barajador implements ActionListener, Barajable {
 			this.pilaUno.add(new Casilla(this.datos.getPilaUno().getPila().get(i).toString()));
 		}
 		for (int i = 0; i < this.datos.getPilaDos().getPila().size(); i++) {
-			System.out.println(this.datos.getPilaDos().getPila().get(i).toString());
 			this.pilaDos.add(new Casilla(this.datos.getPilaDos().getPila().get(i).toString()));
 		}
 		this.actualizador.actualizar(this.pilaUno);
@@ -55,7 +54,6 @@ public class Barajador implements ActionListener, Barajable {
 //				datos.getPilaDos().enpilar((temporal.get(i)));
 //			}
 //		}
-		System.out.println(datos.getPilaDos().getPila().size());
 		if (numeroRandom == 0) {
 			if (datos.getPilaUno().getPila().size() < Constantes.TAMANO_PILA) {
 				datos.getPilaUno().enpilar((Colores) object);
@@ -81,7 +79,8 @@ public class Barajador implements ActionListener, Barajable {
 		}
 		datos.getPilaDos().getPila().removeAllElements();
 		for (int i = 0; i < temporal.size(); i++) {
-			addToPila(temporal.get(i), Utiles.numeroRandom01(), datos);
+			int num=Utiles.numeroRandom01();
+			addToPila(temporal.get(i), num, datos);
 		}
 		temporal.clear();
 	}

@@ -15,6 +15,6 @@ public class Utiles {
 			return numeroAleatorio;
 		}
 		public static int numeroRandom01() {
-			return (int) (Math.random() *1);
+			return (int) (Math.random() *2);
 		}
 }

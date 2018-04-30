@@ -1,9 +1,7 @@
 package modelo;
 
-import java.util.ArrayDeque;
-import java.util.List;
-import java.util.Stack;
-import java.util.Vector;
+import java.util.ArrayList;
+import java.util.TreeSet;
 
 public class Datos {
 
@@ -11,7 +9,7 @@ public class Datos {
 	private Lista lista;
 	private Pila pilaUno;
 	private Pila pilaDos;
-	private MemorizadorCola memoriaCola;
+	private MemoriaSeleccionador memoriaSeleccionador;
 
 	public Datos() {
 		super();
@@ -19,8 +17,23 @@ public class Datos {
 		this.lista = new Lista();
 		this.pilaUno = new Pila();
 		this.pilaDos = new Pila();
+		this.memoriaSeleccionador = new MemoriaSeleccionador();
 	}
 	
+	
+	
+	public void encolar(Colores color) {
+		cola.encolar(color);
+	}
+
+
+
+	public Colores desencolar() {
+		return cola.desencolar();
+	}
+
+
+
 	public Cola getCola() {
 		return cola;
 	}
@@ -36,6 +49,8 @@ public class Datos {
 	public Pila getPilaDos() {
 		return pilaDos;
 	}
-
-
+	
+	public ArrayList<Colores> getMemoriaSeleccionador() {
+		return memoriaSeleccionador.getMemoriaSeleccionador();
+	}
 }

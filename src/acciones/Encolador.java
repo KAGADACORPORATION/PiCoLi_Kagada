@@ -21,7 +21,6 @@ import vista.Casilla;
 
 public class Encolador implements ActionListener{
 
-	private Datos datos;
 	private Logica logica;
 	private JPanel cola;
 	private JPanel pilaUno;
@@ -33,10 +32,9 @@ public class Encolador implements ActionListener{
 	
 	
 
-	public Encolador(Datos datos, Logica logica, JPanel cola, JPanel pilaUno, JPanel pilaDos,
+	public Encolador(Logica logica, JPanel cola, JPanel pilaUno, JPanel pilaDos,
 			Actualizador actualizador, JPanel lista, JButton botonSeleccionarColor, JPanel panelSeleccionarColor) {
 		super();
-		this.datos = datos;
 		this.logica = logica;
 		this.cola = cola;
 		this.pilaUno = pilaUno;
@@ -52,11 +50,11 @@ public class Encolador implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Casilla botonPulsado =((Casilla)e.getSource());
-		this.datos.getCola().encolar(Colores.valueOf(botonPulsado.getColor()));
-		this.empilar(this.datos.getCola().desencolar());
+		this.logica.encolar(Colores.valueOf(botonPulsado.getColor()));
 		this.panelSeleccionarColor.removeAll();
 		this.panelSeleccionarColor.add(botonSeleccionarColor);
 		actualizarColaVista();
+		actualizarPilaVista();
 		this.actualizador.actualizar(cola);
 		this.actualizador.actualizar(pilaUno);
 		this.actualizador.actualizar(pilaDos);
@@ -68,16 +66,26 @@ public class Encolador implements ActionListener{
 
 	private void actualizarColaVista() {
 		this.cola.removeAll();
-		for (Iterator<Colores> iterator = this.datos.getCola().getCola().iterator(); iterator.hasNext();) {
+		for (Iterator<Colores> iterator = this.logica.getDatos().getCola().getCola().iterator(); iterator.hasNext();) {
 			Colores color = iterator.next();
-				Casilla nuevaCasilla = new Casilla(color.name());
+				Casilla nuevaCasilla = new Casilla(color.toString());
 				this.cola.add(nuevaCasilla);
 		}
 	}
-		
-	private void empilar(Colores color) {
-		if(Utiles.genNumeroRandom(0, 1)==1)this.datos.getPilaUno().enpilar(color);
-		else this.datos.getPilaDos().enpilar(color);
-	}
+	private void actualizarPilaVista() {
+		this.pilaUno.removeAll();
+		for (Iterator<Colores> iterator = this.logica.getDatos().getPilaUno().getPila().iterator(); iterator.hasNext();) {
+			Colores color = iterator.next();
+				Casilla nuevaCasilla = new Casilla(color.toString());
+				this.pilaUno.add(nuevaCasilla);
+		}
+		this.pilaDos.removeAll();
+		for (Iterator<Colores> iterator = this.logica.getDatos().getPilaDos().getPila().iterator(); iterator.hasNext();) {
+			Colores color = iterator.next();
+				Casilla nuevaCasilla = new Casilla(color.toString());
+				this.pilaDos.add(nuevaCasilla);
+		}
+	}	
+	
 	
 }

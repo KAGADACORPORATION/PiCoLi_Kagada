@@ -29,12 +29,12 @@ public class Seleccionador implements ActionListener{
  private Encolador encolador;
  private Logica logica;
  
-	public Seleccionador(JPanel panelSeleccionarColor, JButton botonSeleccionarColor, Logica logica, Actualizador actualizador,Encolador encolador) {
+	public Seleccionador(JPanel panelSeleccionarColor, JButton botonSeleccionarColor, Logica logica, Actualizador actualizador,Encolador encolador,Retroceso retroceso) {
 		super();
 		this.panelSeleccionarColor = panelSeleccionarColor;
 		this.botonSeleccionarColor = botonSeleccionarColor;
 		this.actualizador = actualizador;
-		this.retroceso = new Retroceso(this.panelSeleccionarColor,this.botonSeleccionarColor,this.actualizador);
+		this.retroceso = retroceso;
 		this.encolador = encolador;
 		this.logica = logica;
 	}
@@ -58,9 +58,4 @@ public class Seleccionador implements ActionListener{
 		this.panelSeleccionarColor.add(this.botonRetroceder);
 		this.actualizador.actualizar(this.panelSeleccionarColor);
 	}
-
-	//METODOS
-	
-
-	
 }

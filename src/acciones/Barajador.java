@@ -3,12 +3,7 @@ package acciones;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Stack;
-
 import javax.swing.JPanel;
-
-import org.junit.Test;
-
 import interfaces.Barajable;
 import modelo.Colores;
 import modelo.Datos;
@@ -18,10 +13,10 @@ import vista.Casilla;
 
 public class Barajador implements ActionListener, Barajable {
 
-	Datos datos;
-	Actualizador actualizador;
-	JPanel pilaUno;
-	JPanel pilaDos;
+	private Datos datos;
+	private Actualizador actualizador;
+	private JPanel pilaUno;
+	private JPanel pilaDos;
 
 	public Barajador(JPanel pilaUno, JPanel pilaDos, Datos datos, Actualizador actualizador) {
 		super();
@@ -46,7 +41,7 @@ public class Barajador implements ActionListener, Barajable {
 		this.actualizador.actualizar(this.pilaDos);
 	}
 
-	private void addToPila(Object object, int numeroRandom, Datos datos) {
+	private void addToPila(Colores color, int numeroRandom, Datos datos) {
 //		for (int i = 0; i < temporal.size(); i++) {
 //			if (i % 2 == 0) {
 //				datos.getPilaUno().enpilar((temporal.get(i)));
@@ -55,20 +50,20 @@ public class Barajador implements ActionListener, Barajable {
 //			}
 //		}
 		if (numeroRandom == 0) {
-			if (datos.getPilaUno().getPila().size() < Constantes.TAMANO_PILA) {
-				datos.getPilaUno().enpilar((Colores) object);
+			if (datos.getPilaUno().getPila().size() < Constantes.TAMANO_PILA-1) {
+				datos.getPilaUno().enpilar(color);
 			} else
-				datos.getPilaDos().enpilar((Colores) object);
+				datos.getPilaDos().enpilar(color);
 
-		} else if (datos.getPilaDos().getPila().size() < Constantes.TAMANO_PILA) {
-			datos.getPilaDos().enpilar((Colores) object);
+		} else if (datos.getPilaDos().getPila().size() < Constantes.TAMANO_PILA-1) {
+			datos.getPilaDos().enpilar(color);
 		} else
-			datos.getPilaUno().enpilar((Colores) object);
+			datos.getPilaUno().enpilar(color);
 	}
 
 	@Override
 	public void barajarColor(Datos datos) {
-		ArrayList temporal = new ArrayList();
+		ArrayList<Colores> temporal = new ArrayList<Colores>();
 		for (int i = 0; i < datos.getPilaUno().getPila().size(); i++) {
 			temporal.add(datos.getPilaUno().getPila().get(i));
 		}

@@ -31,7 +31,7 @@ public class Puente extends VistaPrincipal {
 		this.encolador = new Encolador(this.logica,this.cola,this.pilaUno,this.pilaDos,this.actualizador,this.lista,this.botonSeleccionarColor,this.panelSeleccionarColor);
 		this.seleccionarColor = new Seleccionador(this.panelSeleccionarColor, this.botonSeleccionarColor,this.logica,this.actualizador,this.encolador);
 		this.botonSeleccionarColor.addActionListener(seleccionarColor);
-		this.pedirColor= new Pedidor(this.panelPedirColor, this.botonPedirColor, this.datos,this.actualizador);
+//		this.pedirColor= new Pedidor(this.panelPedirColor, this.botonPedirColor, this.datos,this.actualizador);
 		this.botonPedirColor.addActionListener(pedirColor);
 		
 		this.borrarColor=new Borrador(this.lista,this.datos, this.actualizador);

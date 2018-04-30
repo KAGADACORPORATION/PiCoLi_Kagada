@@ -1,19 +1,11 @@
 package vista;
 
 import javax.swing.JFrame;
-import java.awt.Choice;
-import java.awt.BorderLayout;
-import javax.swing.JToolBar;
-import javax.swing.JMenuBar;
 import javax.swing.JButton;
 import javax.swing.JPanel;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
-import javax.swing.JRadioButton;
 import javax.swing.BoxLayout;
 import java.awt.Dimension;
 import javax.swing.SwingConstants;
-import java.awt.FlowLayout;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
@@ -23,8 +15,6 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.border.LineBorder;
 import java.awt.Cursor;
-import javax.swing.border.BevelBorder;
-import javax.swing.ImageIcon;
 
 public class VistaPrincipal extends JFrame{
 	protected JLabel puntosMonedas;
@@ -41,6 +31,7 @@ public class VistaPrincipal extends JFrame{
 	protected JButton botonBorrarColor;
 	protected JLabel mensaje;
 	protected JButton botonSeleccionarColor;
+	private JLabel lblNewLabel;
 	
 	public VistaPrincipal() {
 		setSize(new Dimension(600, 400));
@@ -48,7 +39,7 @@ public class VistaPrincipal extends JFrame{
 		setPreferredSize(new Dimension(600, 400));
 		getContentPane().setBackground(new Color(255, 255, 255));
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[] {20, 55, 26, 27, 33, 33, 33, 33, 33, 33, 33, 33, 33, 14};
+		gridBagLayout.columnWidths = new int[] {30, 40, 30, 30, 32, 32, 33, 33, 33, 33, 33, 33, 33, 14};
 		gridBagLayout.rowHeights = new int[] {37, 20, 44, 48, 28, 40, 32, 20, 10};
 		gridBagLayout.columnWeights = new double[]{0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
 		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 1.0, 1.0, 0.0, 1.0, 0.0, 0.0, Double.MIN_VALUE};
@@ -137,6 +128,7 @@ public class VistaPrincipal extends JFrame{
 		lista.setBorder(new LineBorder(new Color(0, 0, 255), 1, true));
 		lista.setBackground(new Color(240, 248, 255));
 		GridBagConstraints gbc_lista = new GridBagConstraints();
+		gbc_lista.anchor = GridBagConstraints.NORTHWEST;
 		gbc_lista.gridwidth = 9;
 		gbc_lista.gridheight = 4;
 		gbc_lista.insets = new Insets(0, 0, 5, 0);
@@ -144,7 +136,20 @@ public class VistaPrincipal extends JFrame{
 		gbc_lista.gridx = 4;
 		gbc_lista.gridy = 2;
 		getContentPane().add(lista, gbc_lista);
-		lista.setLayout(new GridLayout(5, 7, 0, 0));
+		GridBagLayout gbl_lista = new GridBagLayout();
+		gbl_lista.columnWidths = new int[] {63, 63, 63, 63, 63, 63, 63, 0};
+		gbl_lista.rowHeights = new int[] {45, 45, 45, 45, 45, 0};
+		gbl_lista.columnWeights = new double[]{1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
+		gbl_lista.rowWeights = new double[]{1.0, 1.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
+		lista.setLayout(gbl_lista);
+		
+		lblNewLabel = new JLabel("New label");
+		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
+		gbc_lblNewLabel.fill = GridBagConstraints.BOTH;
+		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 5);
+		gbc_lblNewLabel.gridx = 0;
+		gbc_lblNewLabel.gridy = 0;
+		lista.add(lblNewLabel, gbc_lblNewLabel);
 		
 		panelSeleccionarColor = new JPanel();
 		panelSeleccionarColor.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));

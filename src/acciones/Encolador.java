@@ -1,5 +1,7 @@
 package acciones;
 
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentEvent;
@@ -12,10 +14,12 @@ import java.util.Iterator;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 import control.Logica;
 import modelo.Colores;
 import modelo.Datos;
+import utiles.Constantes;
 import utiles.Utiles;
 import vista.Casilla;
 
@@ -55,6 +59,7 @@ public class Encolador implements ActionListener{
 		this.panelSeleccionarColor.add(botonSeleccionarColor);
 		actualizarColaVista();
 		actualizarPilaVista();
+		actualizarListaVista();
 		this.actualizador.actualizar(cola);
 		this.actualizador.actualizar(pilaUno);
 		this.actualizador.actualizar(pilaDos);
@@ -87,5 +92,15 @@ public class Encolador implements ActionListener{
 		}
 	}	
 	
+	private void actualizarListaVista() {
+		this.lista.removeAll();
+		for (int i = 0; i < logica.getDatos().getLista().getLista().size(); i++) {
+			Colores color = logica.getDatos().getLista().getLista().get(i);
+			Casilla nuevaCasilla = new Casilla(color.toString());
+			int posicionX = (i + Constantes.TAMANO_LISTA_ANCHO) % Constantes.TAMANO_LISTA_ANCHO;
+			int posicionY = i / Constantes.TAMANO_LISTA_ANCHO;
+			lista.add(nuevaCasilla, new GridBagConstraints(posicionX, posicionY, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0));
+		}
+	}
 	
 }

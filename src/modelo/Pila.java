@@ -15,6 +15,6 @@ public class Pila {
 	}
 
 	public Colores desenpilar() {
-		return this.pila.pop();
+		return this.pila.remove(0);
 	}
 }

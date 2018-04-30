@@ -92,8 +92,18 @@ public class Logica implements InterfazLogica {
 	}
 	
 	private void empilar(Colores color) {
-		if(Utiles.genNumeroRandom(0, 1)==1)this.datos.getPilaUno().enpilar(color);
-		else this.datos.getPilaDos().enpilar(color);
+		if(Utiles.genNumeroRandom(0, 1)==1) {
+			this.datos.getPilaUno().enpilar(color);
+			if(this.datos.getPilaUno().getPila().size()>=Constantes.TAMANO_PILA) {
+				this.datos.getLista().enlistar(this.datos.getPilaUno().desenpilar());
+			}
+		}
+		else {
+			this.datos.getPilaDos().enpilar(color);
+			if(this.datos.getPilaDos().getPila().size()>=Constantes.TAMANO_PILA) {
+				this.datos.getLista().enlistar(this.datos.getPilaDos().desenpilar());
+			}
+		}
 	}
 	
 	public void encolar(Colores color) {

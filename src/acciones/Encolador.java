@@ -33,11 +33,12 @@ public class Encolador implements ActionListener{
 	private JPanel lista;
 	private JButton botonSeleccionarColor;
 	private JPanel panelSeleccionarColor;
-	
+	private JButton botonPedirColor;
+	private JPanel panelPedirColor;
 	
 
 	public Encolador(Logica logica, JPanel cola, JPanel pilaUno, JPanel pilaDos,
-			Actualizador actualizador, JPanel lista, JButton botonSeleccionarColor, JPanel panelSeleccionarColor) {
+			Actualizador actualizador, JPanel lista, JButton botonSeleccionarColor, JPanel panelSeleccionarColor, JButton botonPedirColor, JPanel panelPedirColor) {
 		super();
 		this.logica = logica;
 		this.cola = cola;
@@ -47,6 +48,8 @@ public class Encolador implements ActionListener{
 		this.lista = lista;
 		this.botonSeleccionarColor = botonSeleccionarColor;
 		this.panelSeleccionarColor = panelSeleccionarColor;
+		this.panelPedirColor = panelPedirColor;
+		this.botonPedirColor = botonPedirColor;
 	}
 
 
@@ -57,6 +60,8 @@ public class Encolador implements ActionListener{
 		this.logica.encolar(Colores.valueOf(botonPulsado.getColor()));
 		this.panelSeleccionarColor.removeAll();
 		this.panelSeleccionarColor.add(botonSeleccionarColor);
+		this.panelPedirColor.removeAll();
+		this.panelPedirColor.add(botonPedirColor);
 		actualizarColaVista();
 		actualizarPilaVista();
 		actualizarListaVista();
@@ -65,6 +70,7 @@ public class Encolador implements ActionListener{
 		this.actualizador.actualizar(pilaDos);
 		this.actualizador.actualizar(lista);
 		this.actualizador.actualizar(panelSeleccionarColor);
+		this.actualizador.actualizar(panelPedirColor);
 	}
 
 

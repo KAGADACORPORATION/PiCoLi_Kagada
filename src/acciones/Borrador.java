@@ -54,8 +54,7 @@ public class Borrador implements ActionListener, Borrable {
 		this.botonRetroceder = new JButton(" ");
 		this.botonRetroceder.setMaximumSize(new Dimension(222, 222));
 		this.botonRetroceder.setMargin(new Insets(0, 0, 0, 0));
-		this.botonRetroceder.setIcon(
-				new ImageIcon(VistaPrincipal.class.getResource("/com/sun/javafx/scene/web/skin/Undo_16x16_JFX.png")));
+		this.botonRetroceder.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/com/sun/javafx/scene/web/skin/Undo_16x16_JFX.png")));
 		this.botonRetroceder.addActionListener(retroceso);
 		this.panelBorrarColor.add(this.botonRetroceder);
 		// Casilla etiquetaActual = ((Casilla) e.getSource());

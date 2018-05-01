@@ -66,10 +66,12 @@ public class Encolador implements ActionListener {
 		actualizarListaMonedas();
 		actualizarTextoBotonPedir();
 		if (this.logica.isPerdedor()) {
-			this.botonPedirColor.setEnabled(false);
-			this.botonSeleccionarColor.setEnabled(false);
-			this.botonBarajarPila.setEnabled(false);
+			cambiarEstadoBotones();
 			this.msj.setText("HAS PERDIDO");
+		}
+		if (this.logica.isGanador()) {
+			cambiarEstadoBotones();
+			this.msj.setText("HAS GANADO");
 		}
 		this.actualizador.actualizar(cola);
 		this.actualizador.actualizar(pilaUno);
@@ -78,6 +80,12 @@ public class Encolador implements ActionListener {
 		this.actualizador.actualizar(panelSeleccionarColor);
 		this.actualizador.actualizar(panelPedirColor);
 		this.actualizador.actualizar((JPanel) puntosMonedas.getParent());
+	}
+
+	private void cambiarEstadoBotones() {
+		this.botonPedirColor.setEnabled(false);
+		this.botonSeleccionarColor.setEnabled(false);
+		this.botonBarajarPila.setEnabled(false);
 	}
 
 	private void actualizarTextoBotonPedir() {

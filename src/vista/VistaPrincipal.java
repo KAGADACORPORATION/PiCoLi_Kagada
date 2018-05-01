@@ -234,5 +234,4 @@ public class VistaPrincipal extends JFrame{
 		gbc_mensaje.gridy = 7;
 		getContentPane().add(mensaje, gbc_mensaje);
 	}
-	
 }

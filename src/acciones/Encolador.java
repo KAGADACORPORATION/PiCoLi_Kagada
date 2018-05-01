@@ -13,7 +13,7 @@ import modelo.Colores;
 import utiles.Constantes;
 import vista.Casilla;
 
-public class Encolador implements ActionListener{
+public class Encolador implements ActionListener {
 
 	private Logica logica;
 	private JPanel cola;
@@ -26,9 +26,12 @@ public class Encolador implements ActionListener{
 	private JButton botonPedirColor;
 	private JPanel panelPedirColor;
 	private JLabel puntosMonedas;
-	
-	public Encolador(Logica logica, JPanel cola, JPanel pilaUno, JPanel pilaDos,
-			Actualizador actualizador, JPanel lista, JButton botonSeleccionarColor, JPanel panelSeleccionarColor, JButton botonPedirColor, JPanel panelPedirColor, JLabel puntosMonedas) {
+	private JLabel msj;
+	JButton botonBarajarPila;
+
+	public Encolador(Logica logica, JPanel cola, JPanel pilaUno, JPanel pilaDos, Actualizador actualizador,
+			JPanel lista, JButton botonSeleccionarColor, JPanel panelSeleccionarColor, JButton botonPedirColor,
+			JPanel panelPedirColor, JLabel puntosMonedas, JLabel msj, JButton botonBarajarPila) {
 		super();
 		this.logica = logica;
 		this.cola = cola;
@@ -41,18 +44,18 @@ public class Encolador implements ActionListener{
 		this.panelPedirColor = panelPedirColor;
 		this.botonPedirColor = botonPedirColor;
 		this.puntosMonedas = puntosMonedas;
+		this.msj=msj;
+		this.botonBarajarPila=botonBarajarPila;
 	}
-
-
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		Casilla botonPulsado =((Casilla)e.getSource());
+		Casilla botonPulsado = ((Casilla) e.getSource());
 		boolean pedido = false;
-		if(((JPanel)botonPulsado.getParent()).getComponentCount()==Colores.getCantidadElementos()+1) {
+		if (((JPanel) botonPulsado.getParent()).getComponentCount() == Colores.getCantidadElementos() + 1) {
 			pedido = true;
 		}
-		this.logica.encolar(Colores.valueOf(botonPulsado.getColor()),pedido);
+		this.logica.encolar(Colores.valueOf(botonPulsado.getColor()), pedido);
 		this.panelSeleccionarColor.removeAll();
 		this.panelSeleccionarColor.add(botonSeleccionarColor);
 		this.panelPedirColor.removeAll();
@@ -62,18 +65,25 @@ public class Encolador implements ActionListener{
 		actualizarListaVista();
 		actualizarListaMonedas();
 		actualizarTextoBotonPedir();
+		if (this.logica.isPerdedor()) {
+			this.botonPedirColor.setEnabled(false);
+			this.botonSeleccionarColor.setEnabled(false);
+			this.botonBarajarPila.setEnabled(false);
+			this.msj.setText("HAS PERDIDO");
+		}
 		this.actualizador.actualizar(cola);
 		this.actualizador.actualizar(pilaUno);
 		this.actualizador.actualizar(pilaDos);
 		this.actualizador.actualizar(lista);
 		this.actualizador.actualizar(panelSeleccionarColor);
 		this.actualizador.actualizar(panelPedirColor);
-		this.actualizador.actualizar((JPanel)puntosMonedas.getParent());
+		this.actualizador.actualizar((JPanel) puntosMonedas.getParent());
 	}
 
 	private void actualizarTextoBotonPedir() {
-		this.botonPedirColor.setText("Pedir Color (x"+this.logica.getPedirColor()+")");
-		if(this.logica.getPedirColor()<=0)this.botonPedirColor.setEnabled(false);
+		this.botonPedirColor.setText("Pedir Color (x" + this.logica.getPedirColor() + ")");
+		if (this.logica.getPedirColor() <= 0)
+			this.botonPedirColor.setEnabled(false);
 	}
 
 	private void actualizarListaMonedas() {
@@ -84,25 +94,28 @@ public class Encolador implements ActionListener{
 		this.cola.removeAll();
 		for (Iterator<Colores> iterator = this.logica.getDatos().getCola().getCola().iterator(); iterator.hasNext();) {
 			Colores color = iterator.next();
-				Casilla nuevaCasilla = new Casilla(color.toString());
-				this.cola.add(nuevaCasilla);
+			Casilla nuevaCasilla = new Casilla(color.toString());
+			this.cola.add(nuevaCasilla);
 		}
 	}
+
 	private void actualizarPilaVista() {
 		this.pilaUno.removeAll();
-		for (Iterator<Colores> iterator = this.logica.getDatos().getPilaUno().getPila().iterator(); iterator.hasNext();) {
+		for (Iterator<Colores> iterator = this.logica.getDatos().getPilaUno().getPila().iterator(); iterator
+				.hasNext();) {
 			Colores color = iterator.next();
-				Casilla nuevaCasilla = new Casilla(color.toString());
-				this.pilaUno.add(nuevaCasilla);
+			Casilla nuevaCasilla = new Casilla(color.toString());
+			this.pilaUno.add(nuevaCasilla);
 		}
 		this.pilaDos.removeAll();
-		for (Iterator<Colores> iterator = this.logica.getDatos().getPilaDos().getPila().iterator(); iterator.hasNext();) {
+		for (Iterator<Colores> iterator = this.logica.getDatos().getPilaDos().getPila().iterator(); iterator
+				.hasNext();) {
 			Colores color = iterator.next();
-				Casilla nuevaCasilla = new Casilla(color.toString());
-				this.pilaDos.add(nuevaCasilla);
+			Casilla nuevaCasilla = new Casilla(color.toString());
+			this.pilaDos.add(nuevaCasilla);
 		}
-	}	
-	
+	}
+
 	private void actualizarListaVista() {
 		this.lista.removeAll();
 		for (int i = 0; i < logica.getDatos().getLista().getLista().size(); i++) {
@@ -110,8 +123,9 @@ public class Encolador implements ActionListener{
 			Casilla nuevaCasilla = new Casilla(color.toString());
 			int posicionX = (i + Constantes.TAMANO_LISTA_ANCHO) % Constantes.TAMANO_LISTA_ANCHO;
 			int posicionY = i / Constantes.TAMANO_LISTA_ANCHO;
-			lista.add(nuevaCasilla, new GridBagConstraints(posicionX, posicionY, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0));
+			lista.add(nuevaCasilla, new GridBagConstraints(posicionX, posicionY, 1, 1, 1, 1, GridBagConstraints.CENTER,
+					GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0));
 		}
 	}
-	
+
 }

@@ -14,7 +14,7 @@ import modelo.Colores;
 import utiles.Constantes;
 import vista.Casilla;
 
-public class ListenerBorrar implements ActionListener{
+public class ListenerBorrar implements ActionListener {
 
 	private Logica logica;
 	private Actualizador actualizador;
@@ -22,11 +22,9 @@ public class ListenerBorrar implements ActionListener{
 	private JLabel puntosMonedas;
 	private JButton botonBorrarColor;
 	private JPanel panelBorrarColor;
-	
-	
-	
+
 	public ListenerBorrar(Logica logica, Actualizador actualizador, JPanel lista, JButton botonSeleccionarColor,
-			JLabel puntosMonedas,JButton botonBorrarColor, JPanel panelBorrarColor) {
+			JLabel puntosMonedas, JButton botonBorrarColor, JPanel panelBorrarColor) {
 		super();
 		this.logica = logica;
 		this.actualizador = actualizador;
@@ -36,22 +34,26 @@ public class ListenerBorrar implements ActionListener{
 		this.panelBorrarColor = panelBorrarColor;
 	}
 
-
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		Casilla etiquetaActual = ((Casilla)e.getSource());
+		Casilla etiquetaActual = ((Casilla) e.getSource());
 		logica.borrarColor(etiquetaActual.getColor());
 		repintarLista();
 		this.panelBorrarColor.removeAll();
 		this.panelBorrarColor.add(botonBorrarColor);
+		actualizarTextoBotonBorrar();
 		actualizador.actualizar(panelBorrarColor);
 		actualizador.actualizar(lista);
-		
+
 	}
 
-	
-	
+	private void actualizarTextoBotonBorrar() {
+		this.logica.setBorrarColor(this.logica.getBorrarColor() - 1);
+		this.botonBorrarColor.setText("Borrar Color (x" + this.logica.getBorrarColor()+ ")");
+		if (this.logica.getBorrarColor() <= 0)
+			this.botonBorrarColor.setEnabled(false);
+	}
+
 	private void repintarLista() {
 		this.lista.removeAll();
 		for (int i = 0; i < logica.getDatos().getLista().getLista().size(); i++) {
@@ -59,7 +61,8 @@ public class ListenerBorrar implements ActionListener{
 			Casilla nuevaCasilla = new Casilla(color.toString());
 			int posicionX = (i + Constantes.TAMANO_LISTA_ANCHO) % Constantes.TAMANO_LISTA_ANCHO;
 			int posicionY = i / Constantes.TAMANO_LISTA_ANCHO;
-			lista.add(nuevaCasilla, new GridBagConstraints(posicionX, posicionY, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0));
+			lista.add(nuevaCasilla, new GridBagConstraints(posicionX, posicionY, 1, 1, 1, 1, GridBagConstraints.CENTER,
+					GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0));
 		}
 	}
 }

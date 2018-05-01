@@ -1,7 +1,5 @@
 package control;
 
-import java.util.Vector;
-
 import modelo.Colores;
 import modelo.Datos;
 import utiles.Constantes;
@@ -26,16 +24,21 @@ public class Logica {
 		this.barajarPila = 3;
 		this.borrarColor = 2;
 	}
-
+	
+	/**
+	 * metodo recursivo que me ha salido de potra, borra el color pasado por 
+	 * parametro y comprueba las parejas cada vez que borra un color ole ole
+	 * @param color enum tipo Colores valor en String
+	 */
 	public void borrarColor(String color) {
 		for (int i = 0; i < datos.getLista().getLista().size(); i++) {
 			if(this.datos.getLista().getLista().get(i).equals(Colores.valueOf(color))) {
 				this.datos.getLista().getLista().remove(i);
-				this.monedas ++;
+				this.monedas++;
+				borrarColor(color);
 				i--;
 			}
 		}
-		comprobarParejaEnLista();
 		comprobarParejaEnLista();
 	}
 	

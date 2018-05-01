@@ -8,11 +8,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import control.Logica;
+import interfaces.Borrable;
 import modelo.Colores;
 import vista.Casilla;
 import vista.VistaPrincipal;
 
-public class Borrador implements ActionListener {
+public class Borrador implements ActionListener{
 
 	 private JPanel panelBorrarColor;
 	 private JButton botonBorrarColor;

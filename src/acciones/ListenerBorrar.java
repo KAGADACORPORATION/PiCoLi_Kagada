@@ -4,12 +4,11 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
 import control.Logica;
+import interfaces.Borrable;
 import modelo.Colores;
 import utiles.Constantes;
 import vista.Casilla;
@@ -42,6 +41,7 @@ public class ListenerBorrar implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		Casilla etiquetaActual = ((Casilla)e.getSource());
 		logica.borrarColor(etiquetaActual.getColor());
+		actualizarListaMonedas();
 		repintarLista();
 		this.panelBorrarColor.removeAll();
 		this.panelBorrarColor.add(botonBorrarColor);
@@ -61,5 +61,8 @@ public class ListenerBorrar implements ActionListener{
 			int posicionY = i / Constantes.TAMANO_LISTA_ANCHO;
 			lista.add(nuevaCasilla, new GridBagConstraints(posicionX, posicionY, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0));
 		}
+	}
+	private void actualizarListaMonedas() {
+		this.puntosMonedas.setText(String.valueOf(this.logica.getMonedas()));
 	}
 }

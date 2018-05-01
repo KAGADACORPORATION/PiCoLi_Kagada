@@ -4,23 +4,13 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ComponentEvent;
-import java.awt.event.ComponentListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseWheelListener;
 import java.util.Iterator;
-
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
-
 import control.Logica;
 import modelo.Colores;
-import modelo.Datos;
 import utiles.Constantes;
-import utiles.Utiles;
 import vista.Casilla;
 
 public class Encolador implements ActionListener{
@@ -67,8 +57,6 @@ public class Encolador implements ActionListener{
 		this.panelSeleccionarColor.add(botonSeleccionarColor);
 		this.panelPedirColor.removeAll();
 		this.panelPedirColor.add(botonPedirColor);
-		this.panelBorrarColor.removeAll();
-		this.panelBorrarColor.add(botonBorrarColor);
 		actualizarColaVista();
 		actualizarPilaVista();
 		actualizarListaVista();

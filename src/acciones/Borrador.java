@@ -32,6 +32,7 @@ public class Borrador implements ActionListener {
 		this.retroceso = retroceso;
 		this.listenerBorrar = listenerBorrar;
 		this.logica = logica;
+
 	}
 
 	@Override
@@ -51,4 +52,5 @@ public class Borrador implements ActionListener {
 		this.panelBorrarColor.add(this.botonRetroceder);
 		this.actualizador.actualizar(this.panelBorrarColor);
 	}
+
 }

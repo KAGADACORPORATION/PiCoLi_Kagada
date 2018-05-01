@@ -6,8 +6,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import modelo.Datos;
-
 public class Retroceso implements ActionListener {
 
 	private JPanel panelSeleccionarColor;

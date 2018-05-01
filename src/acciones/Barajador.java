@@ -3,7 +3,11 @@ package acciones;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+
+import javax.swing.JButton;
 import javax.swing.JPanel;
+
+import control.Logica;
 import interfaces.Barajable;
 import modelo.Colores;
 import modelo.Datos;
@@ -17,13 +21,18 @@ public class Barajador implements ActionListener, Barajable {
 	private Actualizador actualizador;
 	private JPanel pilaUno;
 	private JPanel pilaDos;
+	private Logica logica;
+	private JButton botonBarajarPila;
 
-	public Barajador(JPanel pilaUno, JPanel pilaDos, Datos datos, Actualizador actualizador) {
+	public Barajador(JPanel pilaUno, JPanel pilaDos, Datos datos, Actualizador actualizador, Logica logica,
+			JButton botonBarajarPila) {
 		super();
 		this.datos = datos;
 		this.actualizador = actualizador;
 		this.pilaUno = pilaUno;
 		this.pilaDos = pilaDos;
+		this.logica = logica;
+		this.botonBarajarPila = botonBarajarPila;
 	}
 
 	@Override
@@ -37,25 +46,25 @@ public class Barajador implements ActionListener, Barajable {
 		for (int i = 0; i < this.datos.getPilaDos().getPila().size(); i++) {
 			this.pilaDos.add(new Casilla(this.datos.getPilaDos().getPila().get(i).toString()));
 		}
+		actualizarTextoBotonPedir();
 		this.actualizador.actualizar(this.pilaUno);
 		this.actualizador.actualizar(this.pilaDos);
 	}
-
+	
+	private void actualizarTextoBotonPedir() {
+		this.logica.setBarajarPila(this.logica.getBarajarPila()-1);
+		this.botonBarajarPila.setText("Barajar (x"+this.logica.getBarajarPila()+")");
+		if(this.logica.getBarajarPila()<=0)this.botonBarajarPila.setEnabled(false);
+	}
+	
 	private void addToPila(Colores color, int numeroRandom, Datos datos) {
-//		for (int i = 0; i < temporal.size(); i++) {
-//			if (i % 2 == 0) {
-//				datos.getPilaUno().enpilar((temporal.get(i)));
-//			} else {
-//				datos.getPilaDos().enpilar((temporal.get(i)));
-//			}
-//		}
 		if (numeroRandom == 0) {
-			if (datos.getPilaUno().getPila().size() < Constantes.TAMANO_PILA-1) {
+			if (datos.getPilaUno().getPila().size() < Constantes.TAMANO_PILA - 1) {
 				datos.getPilaUno().enpilar(color);
 			} else
 				datos.getPilaDos().enpilar(color);
 
-		} else if (datos.getPilaDos().getPila().size() < Constantes.TAMANO_PILA-1) {
+		} else if (datos.getPilaDos().getPila().size() < Constantes.TAMANO_PILA - 1) {
 			datos.getPilaDos().enpilar(color);
 		} else
 			datos.getPilaUno().enpilar(color);
@@ -68,16 +77,15 @@ public class Barajador implements ActionListener, Barajable {
 			temporal.add(datos.getPilaUno().getPila().get(i));
 		}
 		datos.getPilaUno().getPila().removeAllElements();
-		
+
 		for (int i = 0; i < datos.getPilaDos().getPila().size(); i++) {
 			temporal.add(datos.getPilaDos().getPila().get(i));
 		}
 		datos.getPilaDos().getPila().removeAllElements();
 		for (int i = 0; i < temporal.size(); i++) {
-			int num=Utiles.numeroRandom01();
+			int num = Utiles.numeroRandom01();
 			addToPila(temporal.get(i), num, datos);
 		}
 		temporal.clear();
 	}
 }
-

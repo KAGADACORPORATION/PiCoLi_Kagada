@@ -34,7 +34,7 @@ public class Puente extends VistaPrincipal {
 		this.botonSeleccionarColor.addActionListener(seleccionarColor);
 		this.pedirColor= new Pedidor(this.panelPedirColor, this.botonPedirColor,this.logica,this.actualizador,this.encolador,this.retroceso);
 		this.botonPedirColor.addActionListener(pedirColor);
-		this.borrarColor=new Borrador(this.lista,this.datos, this.actualizador);
+		this.borrarColor=new Borrador(this.lista,this.botonBorrarColor,this.panelBorrarColor,this.logica,this.datos, this.actualizador,this.encolador,this.retroceso);
 		this.botonBorrarColor.addActionListener(borrarColor);
 		
 		this.barajarPila= new Barajador(this.pilaUno,this.pilaDos,this.datos,this.actualizador);

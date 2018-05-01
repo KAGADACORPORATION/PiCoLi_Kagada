@@ -37,7 +37,6 @@ public class Encolador implements ActionListener{
 	private JPanel panelPedirColor;
 	private JLabel puntosMonedas;
 	
-
 	public Encolador(Logica logica, JPanel cola, JPanel pilaUno, JPanel pilaDos,
 			Actualizador actualizador, JPanel lista, JButton botonSeleccionarColor, JPanel panelSeleccionarColor, JButton botonPedirColor, JPanel panelPedirColor, JLabel puntosMonedas) {
 		super();
@@ -68,6 +67,8 @@ public class Encolador implements ActionListener{
 		this.panelSeleccionarColor.add(botonSeleccionarColor);
 		this.panelPedirColor.removeAll();
 		this.panelPedirColor.add(botonPedirColor);
+		this.panelBorrarColor.removeAll();
+		this.panelBorrarColor.add(botonBorrarColor);
 		actualizarColaVista();
 		actualizarPilaVista();
 		actualizarListaVista();
@@ -82,20 +83,14 @@ public class Encolador implements ActionListener{
 		this.actualizador.actualizar((JPanel)puntosMonedas.getParent());
 	}
 
-
-
 	private void actualizarTextoBotonPedir() {
 		this.botonPedirColor.setText("Pedir Color (x"+this.logica.getPedirColor()+")");
 		if(this.logica.getPedirColor()<=0)this.botonPedirColor.setEnabled(false);
 	}
 
-
-
 	private void actualizarListaMonedas() {
 		this.puntosMonedas.setText(String.valueOf(this.logica.getMonedas()));
 	}
-
-
 
 	private void actualizarColaVista() {
 		this.cola.removeAll();

@@ -35,10 +35,11 @@ public class Encolador implements ActionListener{
 	private JPanel panelSeleccionarColor;
 	private JButton botonPedirColor;
 	private JPanel panelPedirColor;
+	private JLabel puntosMonedas;
 	
 
 	public Encolador(Logica logica, JPanel cola, JPanel pilaUno, JPanel pilaDos,
-			Actualizador actualizador, JPanel lista, JButton botonSeleccionarColor, JPanel panelSeleccionarColor, JButton botonPedirColor, JPanel panelPedirColor) {
+			Actualizador actualizador, JPanel lista, JButton botonSeleccionarColor, JPanel panelSeleccionarColor, JButton botonPedirColor, JPanel panelPedirColor, JLabel puntosMonedas) {
 		super();
 		this.logica = logica;
 		this.cola = cola;
@@ -50,6 +51,7 @@ public class Encolador implements ActionListener{
 		this.panelSeleccionarColor = panelSeleccionarColor;
 		this.panelPedirColor = panelPedirColor;
 		this.botonPedirColor = botonPedirColor;
+		this.puntosMonedas = puntosMonedas;
 	}
 
 
@@ -57,7 +59,11 @@ public class Encolador implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Casilla botonPulsado =((Casilla)e.getSource());
-		this.logica.encolar(Colores.valueOf(botonPulsado.getColor()));
+		boolean pedido = false;
+		if(((JPanel)botonPulsado.getParent()).getComponentCount()==Colores.getCantidadElementos()+1) {
+			pedido = true;
+		}
+		this.logica.encolar(Colores.valueOf(botonPulsado.getColor()),pedido);
 		this.panelSeleccionarColor.removeAll();
 		this.panelSeleccionarColor.add(botonSeleccionarColor);
 		this.panelPedirColor.removeAll();
@@ -65,12 +71,28 @@ public class Encolador implements ActionListener{
 		actualizarColaVista();
 		actualizarPilaVista();
 		actualizarListaVista();
+		actualizarListaMonedas();
+		actualizarTextoBotonPedir();
 		this.actualizador.actualizar(cola);
 		this.actualizador.actualizar(pilaUno);
 		this.actualizador.actualizar(pilaDos);
 		this.actualizador.actualizar(lista);
 		this.actualizador.actualizar(panelSeleccionarColor);
 		this.actualizador.actualizar(panelPedirColor);
+		this.actualizador.actualizar((JPanel)puntosMonedas.getParent());
+	}
+
+
+
+	private void actualizarTextoBotonPedir() {
+		this.botonPedirColor.setText("Pedir Color (x"+this.logica.getPedirColor()+")");
+		if(this.logica.getPedirColor()<=0)this.botonPedirColor.setEnabled(false);
+	}
+
+
+
+	private void actualizarListaMonedas() {
+		this.puntosMonedas.setText(String.valueOf(this.logica.getMonedas()));
 	}
 
 

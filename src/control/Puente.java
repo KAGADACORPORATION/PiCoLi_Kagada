@@ -29,7 +29,7 @@ public class Puente extends VistaPrincipal {
 		this.logica = iniciador.crearLogica();
 		this.actualizador = new Actualizador();
 		this.retroceso = new Retroceso(this.panelSeleccionarColor, this.botonSeleccionarColor,this.panelPedirColor,this.botonPedirColor, actualizador);
-		this.encolador = new Encolador(this.logica,this.cola,this.pilaUno,this.pilaDos,this.actualizador,this.lista,this.botonSeleccionarColor,this.panelSeleccionarColor,this.botonPedirColor,this.panelPedirColor);
+		this.encolador = new Encolador(this.logica,this.cola,this.pilaUno,this.pilaDos,this.actualizador,this.lista,this.botonSeleccionarColor,this.panelSeleccionarColor,this.botonPedirColor,this.panelPedirColor,this.puntosMonedas);
 		this.seleccionarColor = new Seleccionador(this.panelSeleccionarColor, this.botonSeleccionarColor,this.logica,this.actualizador,this.encolador,this.retroceso);
 		this.botonSeleccionarColor.addActionListener(seleccionarColor);
 		this.pedirColor= new Pedidor(this.panelPedirColor, this.botonPedirColor,this.logica,this.actualizador,this.encolador,this.retroceso);

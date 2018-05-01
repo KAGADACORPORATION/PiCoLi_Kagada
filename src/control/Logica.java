@@ -27,13 +27,23 @@ public class Logica {
 		this.borrarColor = 2;
 	}
 
+	public void borrarColor(String color) {
+		for (int i = 0; i < datos.getLista().getLista().size(); i++) {
+			if(this.datos.getLista().getLista().get(i).equals(Colores.valueOf(color))) {
+				this.datos.getLista().getLista().remove(i);
+				this.monedas ++;
+				i--;
+			}
+		}
+		comprobarParejaEnLista();
+		comprobarParejaEnLista();
+	}
+	
 	private void comprobarGanador() {
 		if (monedas >= Constantes.CANTIDAD_MAX_MONEDAS) {
 			this.ganador = true;
 		}
 	}
-
-	
 
 	public void iniciarCola() {
 		for (int i = 0; i < Constantes.TAMANO_COLA; i++) {
@@ -84,23 +94,22 @@ public class Logica {
 	public void comprobarParejaEnLista() {
 		boolean salida = false;
 		Colores colorEncontrado = null;
-			do {
-				if(this.datos.getLista().getLista().size()>1) {
-					for (int i = 0; i < this.datos.getLista().getLista().size()-1; i++) {
-						Colores colorActual = this.datos.getLista().getLista().get(i);
-						if (colorEncontrado == null) {
-							if(this.datos.getLista().getLista().get(i+1).equals(colorActual)) {
-								colorEncontrado = Colores.valueOf(colorActual.toString());
-								salida=false;
-								this.datos.getLista().getLista().remove(i);
-								this.datos.getLista().getLista().remove(i);
-								this.monedas += 2;
-							}
+		do {
+			if(this.datos.getLista().getLista().size()>1) {
+				for (int i = 0; i < this.datos.getLista().getLista().size()-1; i++) {
+					Colores colorActual = this.datos.getLista().getLista().get(i);
+					if (colorEncontrado == null) {
+						if(this.datos.getLista().getLista().get(i+1).equals(colorActual)) {
+							colorEncontrado = Colores.valueOf(colorActual.toString());
+							salida=false;
+							this.datos.getLista().getLista().remove(i);
+							this.datos.getLista().getLista().remove(i);
+							this.monedas += 2;
 						}
 					}
 				}
-			} while (salida);
-		
+			}
+		} while (salida);
 	}
 
 	private void empilar(Colores color) {

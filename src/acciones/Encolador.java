@@ -4,23 +4,13 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ComponentEvent;
-import java.awt.event.ComponentListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseWheelListener;
 import java.util.Iterator;
-
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
-
 import control.Logica;
 import modelo.Colores;
-import modelo.Datos;
 import utiles.Constantes;
-import utiles.Utiles;
 import vista.Casilla;
 
 public class Encolador implements ActionListener{
@@ -37,7 +27,6 @@ public class Encolador implements ActionListener{
 	private JPanel panelPedirColor;
 	private JLabel puntosMonedas;
 	
-
 	public Encolador(Logica logica, JPanel cola, JPanel pilaUno, JPanel pilaDos,
 			Actualizador actualizador, JPanel lista, JButton botonSeleccionarColor, JPanel panelSeleccionarColor, JButton botonPedirColor, JPanel panelPedirColor, JLabel puntosMonedas) {
 		super();
@@ -82,20 +71,14 @@ public class Encolador implements ActionListener{
 		this.actualizador.actualizar((JPanel)puntosMonedas.getParent());
 	}
 
-
-
 	private void actualizarTextoBotonPedir() {
 		this.botonPedirColor.setText("Pedir Color (x"+this.logica.getPedirColor()+")");
 		if(this.logica.getPedirColor()<=0)this.botonPedirColor.setEnabled(false);
 	}
 
-
-
 	private void actualizarListaMonedas() {
 		this.puntosMonedas.setText(String.valueOf(this.logica.getMonedas()));
 	}
-
-
 
 	private void actualizarColaVista() {
 		this.cola.removeAll();

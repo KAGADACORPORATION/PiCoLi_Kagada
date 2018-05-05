@@ -56,6 +56,6 @@ public class Seleccionador implements ActionListener{
 		this.botonRetroceder.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/com/sun/javafx/scene/web/skin/Undo_16x16_JFX.png")));
 		this.botonRetroceder.addActionListener(retroceso);
 		this.panelSeleccionarColor.add(this.botonRetroceder);
-		this.actualizador.actualizar(this.panelSeleccionarColor);
+		this.actualizador.actualizar();
 	}
 }

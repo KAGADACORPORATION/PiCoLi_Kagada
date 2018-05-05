@@ -23,17 +23,15 @@ public class Pedidor implements ActionListener{
 	 private JButton botonRetroceder;
 	 private Retroceso retroceso;
 	 private Encolador encolador;
-	 private Logica logica;
 	 
 
-	public Pedidor(JPanel panelPedirColor, JButton botonPedirColor, Logica logica, Actualizador actualizador,
+	public Pedidor(JPanel panelPedirColor, JButton botonPedirColor, Actualizador actualizador,
 			Encolador encolador, Retroceso retroceso) {
 		super();
 		this.panelPedirColor = panelPedirColor;
 		this.botonPedirColor = botonPedirColor;
 		this.actualizador = actualizador;
 		this.encolador = encolador;
-		this.logica = logica;
 		this.retroceso = retroceso;
 	}
 
@@ -41,7 +39,6 @@ public class Pedidor implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		this.panelPedirColor.remove(botonPedirColor);
-		this.logica.generarSeleccion();
 		for (int i = 0; i < Colores.getCantidadElementos(); i++) {
 			Casilla casillaActual= new Casilla(Colores.getElement(i).toString());
 			casillaActual.addActionListener(encolador);
@@ -53,6 +50,6 @@ public class Pedidor implements ActionListener{
 		this.botonRetroceder.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/com/sun/javafx/scene/web/skin/Undo_16x16_JFX.png")));
 		this.botonRetroceder.addActionListener(retroceso);
 		this.panelPedirColor.add(this.botonRetroceder);
-		this.actualizador.actualizar(this.panelPedirColor);
+		this.actualizador.actualizar();
 	}
 }

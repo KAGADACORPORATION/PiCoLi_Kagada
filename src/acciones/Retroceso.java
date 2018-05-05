@@ -37,9 +37,7 @@ public class Retroceso implements ActionListener {
 		this.panelPedirColor.add(botonPedirColor);
 		this.panelSeleccionarColor.add(botonSeleccionarColor);
 		this.panelBorrarColor.add(botonBorrarColor);
-		this.actualizador.actualizar(panelSeleccionarColor);
-		this.actualizador.actualizar(panelPedirColor);
-		this.actualizador.actualizar(panelBorrarColor);
+		this.actualizador.actualizar();
 	}
 
 }

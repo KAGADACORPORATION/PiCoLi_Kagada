@@ -35,13 +35,15 @@ public class Logica {
 	}
 
 	/**
-	 * metodo recursivo que me ha salido de potra, borra el color pasado por 
+	 * metodo recursivo que me ha salido de potra, borra el color pasado por
 	 * parametro y comprueba las parejas cada vez que borra un color ole ole
-	 * @param color enum tipo Colores valor en String
+	 * 
+	 * @param color
+	 *            enum tipo Colores valor en String
 	 */
 	public void borrarColor(String color) {
 		for (int i = 0; i < datos.getLista().getLista().size(); i++) {
-			if(this.datos.getLista().getLista().get(i).equals(Colores.valueOf(color))) {
+			if (this.datos.getLista().getLista().get(i).equals(Colores.valueOf(color))) {
 				this.datos.getLista().getLista().remove(i);
 				this.monedas++;
 				borrarColor(color);
@@ -50,7 +52,7 @@ public class Logica {
 		}
 		comprobarParejaEnLista();
 	}
-	
+
 	public void barajarColor() {
 		barajarPila--;
 		ArrayList<Colores> temporal = new ArrayList<Colores>();
@@ -63,7 +65,7 @@ public class Logica {
 			empilar(color);
 		}
 	}
-	
+
 	private void comprobarGanador() {
 		if (monedas >= Constantes.CANTIDAD_MAX_MONEDAS) {
 			this.ganador = true;
@@ -127,13 +129,13 @@ public class Logica {
 		boolean salida = false;
 		Colores colorEncontrado = null;
 		do {
-			if(this.datos.getLista().getLista().size()>1) {
-				for (int i = 0; i < this.datos.getLista().getLista().size()-1; i++) {
+			if (this.datos.getLista().getLista().size() > 1) {
+				for (int i = 0; i < this.datos.getLista().getLista().size() - 1; i++) {
 					Colores colorActual = this.datos.getLista().getLista().get(i);
 					if (colorEncontrado == null) {
-						if(this.datos.getLista().getLista().get(i+1).equals(colorActual)) {
+						if (this.datos.getLista().getLista().get(i + 1).equals(colorActual)) {
 							colorEncontrado = Colores.valueOf(colorActual.toString());
-							salida=false;
+							salida = false;
 							this.datos.getLista().getLista().remove(i);
 							this.datos.getLista().getLista().remove(i);
 							this.monedas += 2;
@@ -213,6 +215,7 @@ public class Logica {
 	}
 
 	public void encolar(Colores color,boolean pedirColor) {
+
 		this.datos.encolar(color);
 		borrarSeleccion();
 		this.empilar(desencolar());
@@ -220,6 +223,7 @@ public class Logica {
 		this.comprobarGanador();
 		this.comprobarPerdedor();
 		if(pedirColor)this.pedirColor--;
+
 	}
 
 	public Colores desencolar() {
@@ -239,6 +243,7 @@ public class Logica {
 	public boolean isPerdedor() {
 		return perdedor;
 	}
+
 	public Datos getDatos() {
 		return this.datos;
 	}
@@ -270,6 +275,7 @@ public class Logica {
 	public void setBarajarPila(int barajarPila) {
 		this.barajarPila = barajarPila;
 	}
+
 	public void setGanador(boolean ganador) {
 		this.ganador = ganador;
 	}
@@ -298,4 +304,5 @@ public class Logica {
 		return this.getMonedas();
 		else return this.getPuntuacionMaxima();
 	}
+
 }

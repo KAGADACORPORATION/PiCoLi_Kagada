@@ -8,7 +8,7 @@ import control.Logica;
 import modelo.Colores;
 import vista.Casilla;
 
-public class Encolador implements ActionListener{
+public class Encolador implements ActionListener {
 
 	private Logica logica;
 	private Actualizador actualizador;
@@ -33,13 +33,11 @@ public class Encolador implements ActionListener{
 		this.panelBotones = panelBotones;
 	}
 
-
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		Casilla botonPulsado =((Casilla)e.getSource());
+		Casilla botonPulsado = ((Casilla) e.getSource());
 		boolean pedido = false;
-		if(((JPanel)botonPulsado.getParent()).getComponentCount()==Colores.getCantidadElementos()+1) {
+		if (((JPanel) botonPulsado.getParent()).getComponentCount() == Colores.getCantidadElementos() + 1) {
 			pedido = true;
 		}
 		if(this.logica.comprobarEspacioEnLista()) {
@@ -65,5 +63,4 @@ public class Encolador implements ActionListener{
 		}
 		actualizador.actualizar();
 	}	
-	
 }
